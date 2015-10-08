@@ -1,1 +1,2 @@
 c:\users\remco\documents\visual studio 2015\Projects\Battleship\Battleship\bin\Debug\Battleship.exe.config
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\bin\Debug\Battleship.exe.config
