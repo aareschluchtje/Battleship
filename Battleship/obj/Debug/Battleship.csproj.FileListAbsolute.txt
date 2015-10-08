@@ -1,2 +1,12 @@
 c:\users\remco\documents\visual studio 2015\Projects\Battleship\Battleship\bin\Debug\Battleship.exe.config
 C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\bin\Debug\Battleship.exe.config
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\bin\Debug\Battleship.exe
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\bin\Debug\Battleship.pdb
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.csprojResolveAssemblyReference.cache
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.GameForm.resources
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.MenuForm.resources
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.NewGame.resources
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.Properties.Resources.resources
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.csproj.GenerateResource.Cache
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.exe
+C:\Users\kees2125\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.pdb

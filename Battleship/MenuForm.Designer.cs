@@ -70,6 +70,7 @@
             this.button_LoadGame.TabIndex = 3;
             this.button_LoadGame.Text = "Load Game";
             this.button_LoadGame.UseVisualStyleBackColor = true;
+            this.button_LoadGame.Click += new System.EventHandler(this.button_LoadGame_Click);
             // 
             // button_FindGame
             // 
@@ -88,6 +89,7 @@
             this.button_Exit.TabIndex = 5;
             this.button_Exit.Text = "Exit";
             this.button_Exit.UseVisualStyleBackColor = true;
+            this.button_Exit.Click += new System.EventHandler(this.button_Exit_Click);
             // 
             // MenuForm
             // 

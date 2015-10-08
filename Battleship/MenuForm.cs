@@ -21,5 +21,17 @@ namespace Battleship
         {
 
         }
+
+        private void button_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button_LoadGame_Click(object sender, EventArgs e)
+        {
+            Form x = new GameForm();
+            x.Show();
+            this.Hide();
+        }
     }
 }

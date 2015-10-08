@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace Battleship
 {
-    public partial class Form1 : Form
+    public partial class NewGame : Form
     {
-        public Form1()
+        public NewGame()
         {
             InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
