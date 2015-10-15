@@ -26,27 +26,25 @@ namespace Battleship
 
         private void draw()
         {
-            Graphics g = Graphics.FromImage(pictureBox1.Image);
-            string[] digits = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
-            for(int i = 0; i < 12; i++)
-            {
-                g.DrawLine(new Pen(Color.Black, 5), new Point(i*40, 0), new Point(i*40, 420));
-                if (i > 0 && i < 11)
-                {
-                    g.DrawString(digits[i-1], new Font(new FontFamily("Arial"), 20), new SolidBrush(Color.Black), new PointF(i * 40 + 10, 5));
-                }
-            }
-            for (int i = 0; i < 12; i++)
-            {
-                g.DrawLine(new Pen(Color.Black, 5), new Point(0, i*38), new Point(440, i*38));
-                if (i > 0 && i < 11)
-                {
-                    g.DrawString(i + "", new Font(new FontFamily("Arial"), 20 ), new SolidBrush(Color.Black), new PointF(5, i * 38 + 10));
-                }
-            }
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Battleship_Click(object sender, EventArgs e)
         {
 
         }
