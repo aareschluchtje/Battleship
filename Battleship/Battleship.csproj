@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OpponentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpponentForm.Designer.cs">
+      <DependentUpon>OpponentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Packet.cs" />
     <Compile Include="HostClient.cs" />
     <Compile Include="FindGame.cs">
@@ -76,6 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FindGame.resx">
       <DependentUpon>FindGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpponentForm.resx">
+      <DependentUpon>OpponentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>

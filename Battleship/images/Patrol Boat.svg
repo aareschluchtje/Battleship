@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="Patrol Boat.svg"
-   inkscape:export-filename="C:\Users\Remco\Documents\GitHub\Battleship\Battleship\images\Patrol Boat.png"
+   inkscape:export-filename="C:\Users\Remco\Documents\GitHub\Battleship\Battleship\images\patrol-boat.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -29,7 +29,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="49.530869"
+     inkscape:cx="7.1044624"
      inkscape:cy="25.186097"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -58,7 +58,7 @@
      id="layer1"
      transform="translate(0,-1002.3622)">
     <rect
-       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:4.441535;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#7f7f7f;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:4.441535;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3336"
        width="96.77549"
        height="46.520405"
