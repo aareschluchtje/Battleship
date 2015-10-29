@@ -32,7 +32,9 @@ namespace Battleship
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpponentForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Fire = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +50,19 @@ namespace Battleship
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // Fire
+            // 
+            this.Fire.Enabled = false;
+            this.Fire.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fire.ForeColor = System.Drawing.Color.Red;
+            this.Fire.Location = new System.Drawing.Point(565, 123);
+            this.Fire.Name = "Fire";
+            this.Fire.Size = new System.Drawing.Size(234, 145);
+            this.Fire.TabIndex = 2;
+            this.Fire.Text = "FIRE";
+            this.Fire.UseVisualStyleBackColor = true;
+            this.Fire.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -59,9 +74,23 @@ namespace Battleship
             this.label1.Text = "Battleship";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Impact", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(626, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 41);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Enemy";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label1_Click);
+            // 
             // OpponentForm
             // 
-            this.ClientSize = new System.Drawing.Size(782, 809);
+            this.ClientSize = new System.Drawing.Size(811, 622);
+            this.Controls.Add(this.Fire);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -77,6 +106,8 @@ namespace Battleship
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button Fire;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

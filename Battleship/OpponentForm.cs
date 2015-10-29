@@ -13,16 +13,25 @@ namespace Battleship
 {
     public partial class OpponentForm : Form
     {
-        private bool setup = true;
+        private bool wait = false;
+        private List<Tuple<int, int>> shotsFired;
+        private Tuple<int, int> currentTarget;
+
         public OpponentForm()
         {
             this.InitializeComponent();
+            shotsFired = new List<Tuple<int, int>>();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Graphics g = pictureBox1.CreateGraphics();
-            g.DrawImage(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\cross.png"), new Point(this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50, this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70));
+            if (!wait)
+            {
+                Graphics g = pictureBox1.CreateGraphics();
+                g.DrawImage(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\cross.png"), new Point(this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50, this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70));
+                currentTarget = new Tuple<int, int>(this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50, this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70);
+                Fire.Enabled = true;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -35,44 +44,11 @@ namespace Battleship
 
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            //if(PatrolBoat.BackColor != Color.Red)
-            //PatrolBoat.BackColor = Color.Green;
-        }
-
-        private void Battleship_Click(object sender, EventArgs e)
-        {
-            //if(Battleship.BackColor != Color.Red)
-            //Battleship.BackColor = Color.Green;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Destroyer_Click(object sender, EventArgs e)
-        {
-            //if(Destroyer.BackColor != Color.Red)
-            //Destroyer.BackColor = Color.Green;
-        }
-
-        private void Submarine_Click(object sender, EventArgs e)
-        {
-            //if(Submarine.BackColor != Color.Red)
-            //Submarine.BackColor = Color.Green;
-        }
-
-        private void AircraftCarrier_Click(object sender, EventArgs e)
-        {
-            //if(AircraftCarrier.BackColor != Color.Red)
-            //AircraftCarrier.BackColor = Color.Green;
+            shotsFired.Add(currentTarget);
+            Fire.Enabled = false;
+            wait = true;
         }
     }
 }

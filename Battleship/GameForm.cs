@@ -16,12 +16,14 @@ namespace Battleship
     {
         private List<Ship> ships; 
         private bool setup = true;
+        private List<Tuple<int, int>> hits;
 
         public GameForm()
         {
             InitializeComponent();
             ReadyButton.Enabled = false;
             this.ships = new List<Ship>();
+            this.hits = new List<Tuple<int, int>>();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -130,6 +132,7 @@ namespace Battleship
             Form opponentForm = new OpponentForm();
             opponentForm.Show();
             setup = false;
+            ReadyButton.Hide();
         }
     }
 }
