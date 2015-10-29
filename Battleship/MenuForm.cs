@@ -24,7 +24,10 @@ namespace Battleship
 
         private void button_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            Form y = new GameForm();
+            y.Show();
+            this.Hide();
         }
 
 
