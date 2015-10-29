@@ -37,16 +37,24 @@ namespace Battleship
             this.Destroyer = new System.Windows.Forms.PictureBox();
             this.Battleship = new System.Windows.Forms.PictureBox();
             this.AircraftCarrier = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Submarine = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.PositionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatrolBoat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Battleship)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AircraftCarrier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Submarine)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 67);
@@ -85,6 +93,7 @@ namespace Battleship
             this.Destroyer.Size = new System.Drawing.Size(151, 50);
             this.Destroyer.TabIndex = 3;
             this.Destroyer.TabStop = false;
+            this.Destroyer.Click += new System.EventHandler(this.Destroyer_Click);
             // 
             // Battleship
             // 
@@ -104,12 +113,86 @@ namespace Battleship
             this.AircraftCarrier.Size = new System.Drawing.Size(252, 50);
             this.AircraftCarrier.TabIndex = 5;
             this.AircraftCarrier.TabStop = false;
+            this.AircraftCarrier.Click += new System.EventHandler(this.AircraftCarrier_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 624);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Patrol Boat";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(275, 624);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Destroyer";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 700);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Battleship";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(275, 700);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Aircraft Carrier";
+            // 
+            // Submarine
+            // 
+            this.Submarine.Image = ((System.Drawing.Image)(resources.GetObject("Submarine.Image")));
+            this.Submarine.Location = new System.Drawing.Point(543, 647);
+            this.Submarine.Name = "Submarine";
+            this.Submarine.Size = new System.Drawing.Size(151, 50);
+            this.Submarine.TabIndex = 3;
+            this.Submarine.TabStop = false;
+            this.Submarine.Click += new System.EventHandler(this.Submarine_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(540, 624);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 17);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Submarine";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // PositionLabel
+            // 
+            this.PositionLabel.AutoSize = true;
+            this.PositionLabel.Location = new System.Drawing.Point(615, 33);
+            this.PositionLabel.Name = "PositionLabel";
+            this.PositionLabel.Size = new System.Drawing.Size(79, 17);
+            this.PositionLabel.TabIndex = 7;
+            this.PositionLabel.Text = "x = 0, Y = 0";
             // 
             // GameForm
             // 
             this.ClientSize = new System.Drawing.Size(782, 809);
+            this.Controls.Add(this.PositionLabel);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.AircraftCarrier);
             this.Controls.Add(this.Battleship);
+            this.Controls.Add(this.Submarine);
             this.Controls.Add(this.Destroyer);
             this.Controls.Add(this.PatrolBoat);
             this.Controls.Add(this.label1);
@@ -123,6 +206,7 @@ namespace Battleship
             ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Battleship)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AircraftCarrier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Submarine)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,6 +220,13 @@ namespace Battleship
         private System.Windows.Forms.PictureBox Destroyer;
         private System.Windows.Forms.PictureBox Battleship;
         private System.Windows.Forms.PictureBox AircraftCarrier;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox Submarine;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label PositionLabel;
     }
 }
 
