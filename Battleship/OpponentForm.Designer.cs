@@ -80,4 +80,3 @@ namespace Battleship
         private System.Windows.Forms.Label label1;
     }
 }
-

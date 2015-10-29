@@ -44,6 +44,7 @@ namespace Battleship
             this.Submarine = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.PositionLabel = new System.Windows.Forms.Label();
+            this.ReadyButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatrolBoat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).BeginInit();
@@ -181,9 +182,20 @@ namespace Battleship
             this.PositionLabel.TabIndex = 7;
             this.PositionLabel.Text = "x = 0, Y = 0";
             // 
+            // ReadyButton
+            // 
+            this.ReadyButton.Location = new System.Drawing.Point(618, 67);
+            this.ReadyButton.Name = "ReadyButton";
+            this.ReadyButton.Size = new System.Drawing.Size(75, 27);
+            this.ReadyButton.TabIndex = 9;
+            this.ReadyButton.Text = "Ready";
+            this.ReadyButton.UseVisualStyleBackColor = true;
+            this.ReadyButton.Click += new System.EventHandler(this.button2_Click);
+            // 
             // GameForm
             // 
             this.ClientSize = new System.Drawing.Size(782, 809);
+            this.Controls.Add(this.ReadyButton);
             this.Controls.Add(this.PositionLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -227,6 +239,7 @@ namespace Battleship
         private System.Windows.Forms.PictureBox Submarine;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label PositionLabel;
+        private System.Windows.Forms.Button ReadyButton;
     }
 }
 
