@@ -1,2 +1,2 @@
 # Battleship
-A C# Game of Kees and Remco
+A C# Game made by Kees and Remco
