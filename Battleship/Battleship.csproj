@@ -46,6 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Packet.cs" />
+    <Compile Include="HostClient.cs" />
+    <Compile Include="FindGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindGame.Designer.cs">
+      <DependentUpon>FindGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FindGame.resx">
+      <DependentUpon>FindGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -34,6 +34,7 @@
             this.label_Port = new System.Windows.Forms.Label();
             this.button_Start = new System.Windows.Forms.Button();
             this.button_Back = new System.Windows.Forms.Button();
+            this.button_LoadGame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_PlayerOne
@@ -93,11 +94,21 @@
             this.button_Back.Text = "Back";
             this.button_Back.UseVisualStyleBackColor = true;
             // 
+            // button_LoadGame
+            // 
+            this.button_LoadGame.Location = new System.Drawing.Point(250, 12);
+            this.button_LoadGame.Name = "button_LoadGame";
+            this.button_LoadGame.Size = new System.Drawing.Size(80, 34);
+            this.button_LoadGame.TabIndex = 6;
+            this.button_LoadGame.Text = "Load Game";
+            this.button_LoadGame.UseVisualStyleBackColor = true;
+            // 
             // NewGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 159);
+            this.Controls.Add(this.button_LoadGame);
             this.Controls.Add(this.button_Back);
             this.Controls.Add(this.button_Start);
             this.Controls.Add(this.label_Port);
@@ -106,6 +117,7 @@
             this.Controls.Add(this.label_PlayerOne);
             this.Name = "NewGame";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.NewGame_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,5 +131,6 @@
         private System.Windows.Forms.Label label_Port;
         private System.Windows.Forms.Button button_Start;
         private System.Windows.Forms.Button button_Back;
+        private System.Windows.Forms.Button button_LoadGame;
     }
 }

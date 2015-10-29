@@ -27,10 +27,18 @@ namespace Battleship
             this.Close();
         }
 
-        private void button_LoadGame_Click(object sender, EventArgs e)
+
+        private void button_FindGame_Click(object sender, EventArgs e)
         {
-            Form x = new GameForm();
-            x.Show();
+            Form y = new FindGame(textBox_Name.Text);
+            y.Show();
+            this.Hide();
+        }
+
+        private void button_NewGame_Click(object sender, EventArgs e)
+        {
+            Form z = new NewGame(true,textBox_Name.Text);
+            z.Show();
             this.Hide();
         }
     }
