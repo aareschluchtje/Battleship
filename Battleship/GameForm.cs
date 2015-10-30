@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,8 @@ namespace Battleship
         private List<Ship> ships; 
         private bool setup = true;
         private List<Tuple<int, int>> hits;
+        private Graphics g;
+        private List<Image> images; 
 
         public GameForm()
         {
@@ -24,57 +27,83 @@ namespace Battleship
             ReadyButton.Enabled = false;
             this.ships = new List<Ship>();
             this.hits = new List<Tuple<int, int>>();
+            this.g = pictureBox1.CreateGraphics();
+            this.images = new List<Image>();
+        }
+
+        public void repaint()
+        {
+            this.Refresh();
+            for(int i = 0; i < images.Count; i++)
+            {
+                g.RotateTransform(ships[i].Rotation);
+                g.DrawImage(images[i], ships[i].Location);
+                g.RotateTransform(-ships[i].Rotation);
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             PositionLabel.Text = "X = " + this.PointToClient(Cursor.Position).X + " Y = " + (this.PointToClient(Cursor.Position).Y - 67);
-            Graphics g = pictureBox1.CreateGraphics();
-            
+            MouseEventArgs eventArgs = (MouseEventArgs) e;
             if (setup)
             {
-                int x = this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X%50;
-                int y = this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70;
+                if (eventArgs.Button == MouseButtons.Left)
+                {
+                    int x = this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50;
+                    int y = this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70;
 
-                if (PatrolBoat.BackColor == Color.Green)
-                {
-                    g.DrawImage(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\patrol-boat.png"), new Point(x, y));
-                    PatrolBoat.BackColor = Color.Red;
-                    ships.Add(new Ship(new Point(x,y), Ship.ShipType.PATROLBOAT, 0));
-                }
-                else if (Destroyer.BackColor == Color.Green || Submarine.BackColor == Color.Green)
-                {
-                    g.DrawImage(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\Destroyer.png"), new Point(x,y));
-                    if (Destroyer.BackColor == Color.Green)
+                    if (PatrolBoat.BackColor == Color.Green)
                     {
-                        Destroyer.BackColor = Color.Red;
-                        ships.Add(new Ship(new Point(x,y), Ship.ShipType.DESTROYER, 0));
+                        images.Add(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\patrol-boat.png"));
+                        PatrolBoat.BackColor = Color.Red;
+                        ships.Add(new Ship(new Point(x, y), Ship.ShipType.PATROLBOAT, 0));
                     }
-                    else
+                    else if (Destroyer.BackColor == Color.Green || Submarine.BackColor == Color.Green)
                     {
-                        Submarine.BackColor = Color.Red;
-                        ships.Add(new Ship(new Point(x,y), Ship.ShipType.SUBMARINE, 0));
+                        images.Add(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\Destroyer.png"));
+                        if (Destroyer.BackColor == Color.Green)
+                        {
+                            Destroyer.BackColor = Color.Red;
+                            ships.Add(new Ship(new Point(x, y), Ship.ShipType.DESTROYER, 0));
+                        }
+                        else
+                        {
+                            Submarine.BackColor = Color.Red;
+                            ships.Add(new Ship(new Point(x, y), Ship.ShipType.SUBMARINE, 0));
+                        }
+                    }
+                    else if (Battleship.BackColor == Color.Green)
+                    {
+                        images.Add(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\Battleship.png"));
+                        Battleship.BackColor = Color.Red;
+                        ships.Add(new Ship(new Point(x, y), Ship.ShipType.BATTLESHIP, 0));
+                    }
+                    else if (AircraftCarrier.BackColor == Color.Green)
+                    {
+                        images.Add(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\Aircraft-carrier.png"));
+                        AircraftCarrier.BackColor = Color.Red;
+                        ships.Add(new Ship(new Point(x, y), Ship.ShipType.AIRCRAFTCARRIER, 0));
+                    }
+                    if (PatrolBoat.BackColor == Color.Red && Destroyer.BackColor == Color.Red &&
+                        Submarine.BackColor == Color.Red && Battleship.BackColor == Color.Red &&
+                        AircraftCarrier.BackColor == Color.Red)
+                    {
+                        ReadyButton.Enabled = true;
                     }
                 }
-                else if (Battleship.BackColor == Color.Green)
+                else if (eventArgs.Button == MouseButtons.Right)
                 {
-                    g.DrawImage(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\Battleship.png"), new Point(x,y));
-                    Battleship.BackColor = Color.Red;
-                    ships.Add(new Ship(new Point(x,y), Ship.ShipType.BATTLESHIP, 0));
-                }
-                else if (AircraftCarrier.BackColor == Color.Green)
-                {
-                    g.DrawImage(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\Aircraft-carrier.png"), new Point(x,y));
-                    AircraftCarrier.BackColor = Color.Red;
-                    ships.Add(new Ship(new Point(x,y), Ship.ShipType.AIRCRAFTCARRIER, 0));
-                }
-                if (PatrolBoat.BackColor == Color.Red && Destroyer.BackColor == Color.Red &&
-                    Submarine.BackColor == Color.Red && Battleship.BackColor == Color.Red &&
-                    AircraftCarrier.BackColor == Color.Red)
-                {
-                    ReadyButton.Enabled = true;
+                    foreach(Ship ship in ships)
+                    {
+                        if (ship.Location.X == MousePosition.X && ship.Location.Y == MousePosition.Y)
+                        {
+                            
+                        }
+                    }
                 }
             }
+            repaint();
         }
 
         private void label1_Click(object sender, EventArgs e)

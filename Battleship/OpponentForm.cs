@@ -16,22 +16,36 @@ namespace Battleship
         private bool wait = false;
         private List<Tuple<int, int>> shotsFired;
         private Tuple<int, int> currentTarget;
+        private Image cross, target;
+        private Graphics g;
 
         public OpponentForm()
         {
             this.InitializeComponent();
             shotsFired = new List<Tuple<int, int>>();
+            cross = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\cross.png");
+            target = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\target.png");
+            g = pictureBox1.CreateGraphics();
+        }
+
+        public void repaint()
+        {
+            this.Refresh();
+            for (int i = 0; i < shotsFired.Count; i++)
+            {
+                g.DrawImage(cross, new Point(shotsFired[i].Item1,shotsFired[i].Item2));
+            }
+            g.DrawImage(target, new Point(currentTarget.Item1, currentTarget.Item2));
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (!wait)
             {
-                Graphics g = pictureBox1.CreateGraphics();
-                g.DrawImage(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\cross.png"), new Point(this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50, this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70));
                 currentTarget = new Tuple<int, int>(this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50, this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70);
                 Fire.Enabled = true;
             }
+            repaint();
         }
 
         private void label1_Click(object sender, EventArgs e)
