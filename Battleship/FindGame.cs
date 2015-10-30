@@ -39,17 +39,11 @@ namespace Battleship
         {
 
             client = new TcpClient(textBoxIP.Text,int.Parse(textBoxPort.Text));
-            stream = client.GetStream();
-            ReceiveThread();
+            ConnectClient tcpclient = new ConnectClient(client);
+            Form z = new NewGame(true,Name,tcpclient);
+            z.Show();
+            this.Hide();
         }
-        private void ReceiveThread()
-        {
-            while (true)
-            {
-                Packet packet = (Packet)formatter.Deserialize(stream);
-                if (packet != null)
-                    packet.handleClientSide();
-            }
-        }
+       
     }
 }

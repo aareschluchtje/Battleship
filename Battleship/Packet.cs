@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    class Packet
+    public class Packet
     {
         public virtual void handleServerSide()
         {

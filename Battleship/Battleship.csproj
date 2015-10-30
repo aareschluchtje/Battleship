@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Server.cs" />
+    <Compile Include="Class2.cs" />
+    <Compile Include="ConnectClient.cs" />
+    <Compile Include="Packet_Test.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="OpponentForm.cs">
       <SubType>Form</SubType>
@@ -54,7 +58,6 @@
       <DependentUpon>OpponentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Packet.cs" />
-    <Compile Include="HostClient.cs" />
     <Compile Include="FindGame.cs">
       <SubType>Form</SubType>
     </Compile>

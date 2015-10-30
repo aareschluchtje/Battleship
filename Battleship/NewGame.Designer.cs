@@ -42,9 +42,10 @@
             this.label_PlayerOne.AutoSize = true;
             this.label_PlayerOne.Location = new System.Drawing.Point(11, 14);
             this.label_PlayerOne.Name = "label_PlayerOne";
-            this.label_PlayerOne.Size = new System.Drawing.Size(81, 13);
+            this.label_PlayerOne.Size = new System.Drawing.Size(48, 13);
             this.label_PlayerOne.TabIndex = 0;
-            this.label_PlayerOne.Text = "Player1: jdijfidsjf";
+            this.label_PlayerOne.Text = "Player1: ";
+            this.label_PlayerOne.Click += new System.EventHandler(this.label_PlayerOne_Click);
             // 
             // label_Player2
             // 

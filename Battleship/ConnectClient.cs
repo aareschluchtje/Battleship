@@ -9,31 +9,46 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    class HostClient
+    public class ConnectClient
     {
         public NetworkStream stream { get; set; }
         public TcpClient tcpClient { get; set; }
-        
+        public Server program { get; }
+        public Packet received;
+        public bool isHost { get; }
 
-        private string username;
-
-        public HostClient(TcpClient tcpClient)
+        public ConnectClient(TcpClient tcpClient,Server program)
         {
-            
+            this.isHost = isHost;
             this.tcpClient = tcpClient;
+            this.program = program;
             stream = tcpClient.GetStream();
             new Thread(() =>
             {
                 BinaryFormatter formatter = new BinaryFormatter();
                 while (tcpClient.Connected)
                 {
-                    Packet packet = (Packet)formatter.Deserialize(stream);
-                    packet.handleServerSide();
+                    received = (Packet)formatter.Deserialize(stream);
+                    
                 }
             }).Start();
         }
+        public ConnectClient(TcpClient tcpClient)
+        {
+            this.isHost = isHost;
+            this.tcpClient = tcpClient;
 
+            stream = tcpClient.GetStream();
+            new Thread(() =>
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                while (tcpClient.Connected)
+                {
+                    received = (Packet)formatter.Deserialize(stream);
 
+                }
+            }).Start();
+        }
 
         public void sendPacket(Packet packet)
         {
@@ -41,4 +56,5 @@ namespace Battleship
             formatter.Serialize(stream, packet);
         }
     }
+
 }
