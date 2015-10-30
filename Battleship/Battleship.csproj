@@ -49,7 +49,7 @@
     <Compile Include="Server.cs" />
     <Compile Include="Class2.cs" />
     <Compile Include="ConnectClient.cs" />
-    <Compile Include="Packet_Test.cs" />
+    <Compile Include="Packet_NameMessage.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="OpponentForm.cs">
       <SubType>Form</SubType>

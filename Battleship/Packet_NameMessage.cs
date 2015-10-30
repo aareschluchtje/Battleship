@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    public class Packet_Test:Packet
+    public class Packet_NameMessage:Packet
     {
         public string message { get; }
         private bool toServer;
-        public Packet_Test(string Message,bool toServer)
+        public Packet_NameMessage(string Message,bool toServer)
         {
             message = Message;
             this.toServer = toServer;

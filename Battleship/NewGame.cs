@@ -19,40 +19,42 @@ namespace Battleship
         public NewGame(bool isHost,string naam)
         {
             
-            if (!isHost)
-            {
-                this.button_Start.Hide();
-                Player2 = naam;
-                //this.label_Player2.Text += Player2;
-            }
-            else
-            {
-                Player1 = naam;
-                //this.label_PlayerOne.Text += Player1;
-                Server server = new Server();
-                System.Net.Sockets.TcpClient temp = new System.Net.Sockets.TcpClient();
-                temp.Connect("127.0.0.1", 1000);
-                client = new ConnectClient(temp, server);
-            }
+            
+           Player1 = naam; 
+           Server server = new Server();
+           System.Net.Sockets.TcpClient temp = new System.Net.Sockets.TcpClient();
+           temp.Connect("127.0.0.1", 1000);
+           client = new ConnectClient(temp, server);
+            
             this.isHost = isHost;
             InitializeComponent();
+            label_PlayerOne.Text += Player1;
+            label_IP.Text += server.ip;
+            label_Port.Text += server.port;
+            client.sendPacket(new Packet_NameMessage(naam, false));
+            //Packet_NameMessage temp1 = (Packet_NameMessage)client.received;
+            //label_Player2.Text += temp1.message;
         }
 
         public NewGame(bool isHost, string naam, ConnectClient client)
         {
-            if (!isHost)
-            {
-                this.button_Start.Hide();
-                Player2 = naam;
-                this.label_Player2.Text += Player2;
-            }
+          
+            
+            Player2 = naam;
+                
+       
            
             this.isHost = isHost;
             this.client = client;
 
 
             InitializeComponent();
-
+            this.button_Start.Hide();
+            this.label_Player2.Text += Player2;
+            label_PlayerOne.Text += Player1;
+            client.sendPacket(new Packet_NameMessage(naam,true));
+            //Packet_NameMessage temp1 = (Packet_NameMessage)client.received;
+            //label_PlayerOne.Text += temp1.message;
         }
 
         private void label1_Click(object sender, EventArgs e)
