@@ -31,7 +31,6 @@ namespace Battleship
             label_PlayerOne.Text += Player1;
             label_IP.Text += server.ip;
             label_Port.Text += server.port;
-            client.sendPacket(new Packet_NameMessage(naam, false));
             //Packet_NameMessage temp1 = (Packet_NameMessage)client.received;
             //label_Player2.Text += temp1.message;
         }
@@ -52,7 +51,7 @@ namespace Battleship
             this.button_Start.Hide();
             this.label_Player2.Text += Player2;
             label_PlayerOne.Text += Player1;
-            client.sendPacket(new Packet_NameMessage(naam,true));
+           
             //Packet_NameMessage temp1 = (Packet_NameMessage)client.received;
             //label_PlayerOne.Text += temp1.message;
         }
@@ -80,6 +79,20 @@ namespace Battleship
         private void label_PlayerOne_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_LoadGame_Click(object sender, EventArgs e)
+        {
+            if (isHost)
+                client.sendPacket(new Packet_NameMessage(Player1, true));
+            else
+                client.sendPacket(new Packet_NameMessage(Player2, true));
+            if (client.received != null)
+            {
+                
+                Packet_NameMessage temp1 = (Packet_NameMessage)client.received;
+                label_Player2.Text += temp1.message;
+            }
         }
     }
 }

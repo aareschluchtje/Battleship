@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
+    [Serializable]
     public class Packet_NameMessage:Packet
     {
         public string message { get; }
