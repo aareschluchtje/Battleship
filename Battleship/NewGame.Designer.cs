@@ -94,6 +94,7 @@
             this.button_Back.TabIndex = 5;
             this.button_Back.Text = "Back";
             this.button_Back.UseVisualStyleBackColor = true;
+            this.button_Back.Click += new System.EventHandler(this.button_Back_Click);
             // 
             // button_LoadGame
             // 

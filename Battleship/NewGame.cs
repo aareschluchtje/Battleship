@@ -96,5 +96,11 @@ namespace Battleship
                 label_Player2.Text += temp1.message;
             }
         }
+
+        private void button_Back_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            oldForm.Show();
+        }
     }
 }
