@@ -22,7 +22,7 @@ namespace Battleship
             
            Player1 = naam; 
            Server server = new Server();
-           System.Net.Sockets.TcpClient temp = new System.Net.Sockets.TcpClient();
+           System.Net.Sockets.TcpClient temp = new System.Net.Sockets.TcpClient("127.0.0.1",1000);
            temp.Connect("127.0.0.1", 1000);
            client = new ConnectClient(temp, server);
             

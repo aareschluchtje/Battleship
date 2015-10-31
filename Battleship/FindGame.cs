@@ -40,7 +40,7 @@ namespace Battleship
 
             client = new TcpClient(textBoxIP.Text,int.Parse(textBoxPort.Text));
             ConnectClient tcpclient = new ConnectClient(client);
-            Form z = new NewGame(true,Name,tcpclient);
+            Form z = new NewGame(true,naam,tcpclient);
             z.Show();
             this.Hide();
         }
