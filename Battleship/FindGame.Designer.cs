@@ -38,42 +38,51 @@
             // 
             // textBoxIP
             // 
-            this.textBoxIP.Location = new System.Drawing.Point(35, 16);
+            this.textBoxIP.Location = new System.Drawing.Point(47, 20);
+            this.textBoxIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxIP.Name = "textBoxIP";
-            this.textBoxIP.Size = new System.Drawing.Size(178, 20);
+            this.textBoxIP.Size = new System.Drawing.Size(236, 22);
             this.textBoxIP.TabIndex = 0;
+            this.textBoxIP.Text = "127.0.0.1";
+            this.textBoxIP.TextChanged += new System.EventHandler(this.textBoxIP_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Location = new System.Drawing.Point(16, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 13);
+            this.label1.Size = new System.Drawing.Size(20, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "IP";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxPort
             // 
-            this.textBoxPort.Location = new System.Drawing.Point(35, 42);
+            this.textBoxPort.Location = new System.Drawing.Point(47, 52);
+            this.textBoxPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPort.Name = "textBoxPort";
-            this.textBoxPort.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPort.Size = new System.Drawing.Size(132, 22);
             this.textBoxPort.TabIndex = 2;
+            this.textBoxPort.Text = "1000";
+            this.textBoxPort.TextChanged += new System.EventHandler(this.textBoxPort_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 45);
+            this.label2.Location = new System.Drawing.Point(4, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(34, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Port";
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(12, 97);
+            this.buttonBack.Location = new System.Drawing.Point(16, 119);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(106, 23);
+            this.buttonBack.Size = new System.Drawing.Size(141, 28);
             this.buttonBack.TabIndex = 4;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -81,9 +90,10 @@
             // 
             // buttonConnect
             // 
-            this.buttonConnect.Location = new System.Drawing.Point(155, 97);
+            this.buttonConnect.Location = new System.Drawing.Point(207, 119);
+            this.buttonConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonConnect.Name = "buttonConnect";
-            this.buttonConnect.Size = new System.Drawing.Size(117, 23);
+            this.buttonConnect.Size = new System.Drawing.Size(156, 28);
             this.buttonConnect.TabIndex = 5;
             this.buttonConnect.Text = "Connect";
             this.buttonConnect.UseVisualStyleBackColor = true;
@@ -91,15 +101,16 @@
             // 
             // FindGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 132);
+            this.ClientSize = new System.Drawing.Size(379, 162);
             this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPort);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxIP);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FindGame";
             this.Text = "Find Game";
             this.Load += new System.EventHandler(this.FindGame_Load);

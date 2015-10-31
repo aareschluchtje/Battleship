@@ -15,32 +15,29 @@ namespace Battleship
         public bool isHost;
         public string Player1 = "";
         public string Player2= "";
-        public ConnectClient client;
+        public Server server;
+        public ClientClass client;
         Form oldForm;
-        public NewGame(bool isHost,string naam, Form oldForm)
-        {
+        private NetworkData data;
 
+        public NewGame(bool isHost, string naam, Form oldForm)
+        {
             this.oldForm = oldForm;
             Player1 = naam; 
-           Server server = new Server();
-           System.Net.Sockets.TcpClient temp = new System.Net.Sockets.TcpClient("127.0.0.1",1000);
-           client = new ConnectClient(temp, server);
-            
+            server = new Server();
+
             this.isHost = isHost;
             InitializeComponent();
             label_PlayerOne.Text += Player1;
-            label_IP.Text += server.ip;
-            label_Port.Text += server.port;
+            label_IP.Text += "127.0.0.1";
+            label_Port.Text += "1000";
             //Packet_NameMessage temp1 = (Packet_NameMessage)client.received;
             //label_Player2.Text += temp1.message;
         }
 
-        public NewGame(bool isHost, string naam, ConnectClient client,Form oldForm)
+        public NewGame(bool isHost, string naam, ClientClass client,Form oldForm)
         {
-          
-            
             Player2 = naam;
-
 
             this.oldForm = oldForm;
             this.isHost = isHost;
@@ -86,14 +83,14 @@ namespace Battleship
         private void button_LoadGame_Click(object sender, EventArgs e)
         {
             if (isHost)
-                client.sendPacket(new Packet_NameMessage(Player1, true));
-            else
-                client.sendPacket(new Packet_NameMessage(Player2, true));
-            if (client.received != null)
             {
-                
-                Packet_NameMessage temp1 = (Packet_NameMessage)client.received;
-                label_Player2.Text += temp1.message;
+                server.sendMessage("bleh");
+                label_Player2.Text += server.naam;
+            }
+            else
+            {
+                client.sendMessage("hoi");
+                label_PlayerOne.Text += client.naam;
             }
         }
 
@@ -101,7 +98,6 @@ namespace Battleship
         {
             oldForm.Show();
             this.Hide();
-            
         }
     }
 }

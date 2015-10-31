@@ -15,12 +15,13 @@ namespace Battleship
     public partial class FindGame : Form
     {
         private TcpClient client;
-        private NetworkStream stream;
+        private NetworkData data;
         string naam;
         Form oldForm;
         BinaryFormatter formatter;
         public FindGame(string naam,Form oldForm)
         {
+            data = new NetworkData();
             this.oldForm = oldForm;
             this.naam = naam;
             formatter = new BinaryFormatter();
@@ -41,8 +42,8 @@ namespace Battleship
         {
 
             client = new TcpClient(textBoxIP.Text,int.Parse(textBoxPort.Text));
-            ConnectClient tcpclient = new ConnectClient(client);
-            Form z = new NewGame(true,naam,tcpclient,this);
+            ClientClass tcpclient = new ClientClass(client);
+            Form z = new NewGame(false,naam,tcpclient,this);
             z.Show();
             this.Hide();
         }
@@ -51,6 +52,16 @@ namespace Battleship
         {
             this.Hide();
             oldForm.Show();
+        }
+
+        private void textBoxIP_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPort_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

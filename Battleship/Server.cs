@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -10,28 +11,30 @@ namespace Battleship
 {
     public class Server
     {
-        private List<ConnectClient> clients = new List<ConnectClient>();
-        public string ip;
-        public int port = 1000;
+        private List<ServerClientThread> clients;
+
+        public string naam;
         public Server()
         {
-            TcpListener listener = new TcpListener(1000);
+            IPAddress localhost = IPAddress.Parse("127.0.0.1");
+            TcpListener listener = new TcpListener(localhost, 1000);
+            clients = new List<ServerClientThread>();
             listener.Start();
-            ip = AddressFamily.InterNetwork.ToString();
-            new Thread(() =>
-            {
-                while (true)
-                {
-                    TcpClient newClient = listener.AcceptTcpClient();
-                    clients.Add(new ConnectClient(newClient, this));
-                }
-            }).Start();
+
+            
+            TcpClient client = listener.AcceptTcpClient();
+            ServerClientThread cl = new ServerClientThread(client, this);
+            clients.Add(cl);
+
+            //Run client on new thread
+            Thread thread = new Thread(new ThreadStart(cl.run));
+            thread.IsBackground = true;
+            thread.Start();
         }
-        public void broadCast(Packet packet)
+
+        public void sendMessage(string message)
         {
-            Console.WriteLine(packet.ToString());
-            foreach (ConnectClient serverClient in clients)
-                serverClient.sendPacket(packet);
+            clients[0].writeMessage(message);
         }
     }
 }
