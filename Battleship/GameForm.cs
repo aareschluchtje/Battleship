@@ -162,6 +162,21 @@ namespace Battleship
             opponentForm.Show();
             setup = false;
             ReadyButton.Hide();
+            button_Reset.Hide();
+        }
+
+        private void button_Reset_Click(object sender, EventArgs e)
+        {
+            AircraftCarrier.BackColor = Color.Gray;
+            Submarine.BackColor = Color.Gray;
+            Destroyer.BackColor = Color.Gray;
+            Battleship.BackColor = Color.Gray;
+            PatrolBoat.BackColor = Color.Gray;
+            this.ships = new List<Ship>();
+            this.hits = new List<Tuple<int, int>>();
+            this.g = pictureBox1.CreateGraphics();
+            this.images = new List<Image>();
+            repaint();
         }
     }
 }
