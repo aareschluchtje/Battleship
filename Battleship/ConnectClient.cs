@@ -45,6 +45,10 @@ namespace Battleship
                 while (tcpClient.Connected)
                 {
                     received = (Packet)formatter.Deserialize(stream);
+                    if(received != null)
+                    {
+                        Console.WriteLine("message");
+                    }
 
                 }
             }).Start();
