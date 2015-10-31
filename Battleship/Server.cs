@@ -29,6 +29,7 @@ namespace Battleship
         }
         public void broadCast(Packet packet)
         {
+            Console.WriteLine(packet.ToString());
             foreach (ConnectClient serverClient in clients)
                 serverClient.sendPacket(packet);
         }
