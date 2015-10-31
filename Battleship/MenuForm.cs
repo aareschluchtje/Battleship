@@ -38,9 +38,14 @@ namespace Battleship
 
         private void button_NewGame_Click(object sender, EventArgs e)
         {
-            Form z = new NewGame(true,textBox_Name.Text);
+            Form z = new NewGame(true,textBox_Name.Text,this);
             z.Show();
             this.Hide();
+        }
+
+        private void MenuForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

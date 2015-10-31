@@ -17,11 +17,11 @@ namespace Battleship
         public string Player2= "";
         public ConnectClient client;
         Form oldForm;
-        public NewGame(bool isHost,string naam)
+        public NewGame(bool isHost,string naam, Form oldForm)
         {
-            
-            
-           Player1 = naam; 
+
+            this.oldForm = oldForm;
+            Player1 = naam; 
            Server server = new Server();
            System.Net.Sockets.TcpClient temp = new System.Net.Sockets.TcpClient("127.0.0.1",1000);
            client = new ConnectClient(temp, server);
@@ -99,8 +99,9 @@ namespace Battleship
 
         private void button_Back_Click(object sender, EventArgs e)
         {
-            this.Hide();
             oldForm.Show();
+            this.Hide();
+            
         }
     }
 }

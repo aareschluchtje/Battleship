@@ -94,6 +94,7 @@
             this.Controls.Add(this.textBox_Name);
             this.Name = "MenuForm";
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.MenuForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
