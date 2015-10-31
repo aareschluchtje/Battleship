@@ -118,7 +118,7 @@
             this.Controls.Add(this.label_Player2);
             this.Controls.Add(this.label_PlayerOne);
             this.Name = "NewGame";
-            this.Text = "Form1";
+            this.Text = "New Game";
             this.Load += new System.EventHandler(this.NewGame_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

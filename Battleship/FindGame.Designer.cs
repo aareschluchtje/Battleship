@@ -77,6 +77,7 @@
             this.buttonBack.TabIndex = 4;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // buttonConnect
             // 
@@ -100,7 +101,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxIP);
             this.Name = "FindGame";
-            this.Text = "Form1";
+            this.Text = "Find Game";
             this.Load += new System.EventHandler(this.FindGame_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

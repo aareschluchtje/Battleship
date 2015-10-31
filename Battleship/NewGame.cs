@@ -16,6 +16,7 @@ namespace Battleship
         public string Player1 = "";
         public string Player2= "";
         public ConnectClient client;
+        Form oldForm;
         public NewGame(bool isHost,string naam)
         {
             
@@ -23,7 +24,6 @@ namespace Battleship
            Player1 = naam; 
            Server server = new Server();
            System.Net.Sockets.TcpClient temp = new System.Net.Sockets.TcpClient("127.0.0.1",1000);
-           temp.Connect("127.0.0.1", 1000);
            client = new ConnectClient(temp, server);
             
             this.isHost = isHost;
@@ -35,14 +35,14 @@ namespace Battleship
             //label_Player2.Text += temp1.message;
         }
 
-        public NewGame(bool isHost, string naam, ConnectClient client)
+        public NewGame(bool isHost, string naam, ConnectClient client,Form oldForm)
         {
           
             
             Player2 = naam;
-                
-       
-           
+
+
+            this.oldForm = oldForm;
             this.isHost = isHost;
             this.client = client;
 
@@ -68,7 +68,9 @@ namespace Battleship
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Form temp = new GameForm(client);
+            this.Hide();
+            temp.Show();
         }
 
         private void NewGame_Load(object sender, EventArgs e)

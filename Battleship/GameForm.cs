@@ -21,7 +21,7 @@ namespace Battleship
         private Graphics g;
         private List<Image> images; 
 
-        public GameForm()
+        public GameForm(ConnectClient client)
         {
             InitializeComponent();
             ReadyButton.Enabled = false;

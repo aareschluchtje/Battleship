@@ -24,16 +24,14 @@ namespace Battleship
 
         private void button_Exit_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            Form y = new GameForm();
-            y.Show();
-            this.Hide();
+            this.Close();
+            
         }
 
 
         private void button_FindGame_Click(object sender, EventArgs e)
         {
-            Form y = new FindGame(textBox_Name.Text);
+            Form y = new FindGame(textBox_Name.Text,this);
             y.Show();
             this.Hide();
         }

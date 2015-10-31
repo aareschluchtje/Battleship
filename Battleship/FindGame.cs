@@ -17,9 +17,11 @@ namespace Battleship
         private TcpClient client;
         private NetworkStream stream;
         string naam;
+        Form oldForm;
         BinaryFormatter formatter;
-        public FindGame(string naam)
+        public FindGame(string naam,Form oldForm)
         {
+            this.oldForm = oldForm;
             this.naam = naam;
             formatter = new BinaryFormatter();
             InitializeComponent();
@@ -40,10 +42,15 @@ namespace Battleship
 
             client = new TcpClient(textBoxIP.Text,int.Parse(textBoxPort.Text));
             ConnectClient tcpclient = new ConnectClient(client);
-            Form z = new NewGame(true,naam,tcpclient);
+            Form z = new NewGame(true,naam,tcpclient,this);
             z.Show();
             this.Hide();
         }
-       
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            oldForm.Show();
+        }
     }
 }
