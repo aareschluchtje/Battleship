@@ -18,7 +18,6 @@ namespace Battleship
         public Server server;
         public ClientClass client;
         Form oldForm;
-        private NetworkData data;
 
         public NewGame(bool isHost, string naam, Form oldForm)
         {

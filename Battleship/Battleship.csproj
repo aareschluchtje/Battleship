@@ -49,7 +49,6 @@
     <Compile Include="ClientClass.cs" />
     <Compile Include="ClientThread.cs" />
     <Compile Include="ServerClientThread.cs" />
-    <Compile Include="NetworkData.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="OpponentForm.cs">

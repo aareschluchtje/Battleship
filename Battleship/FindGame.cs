@@ -15,13 +15,11 @@ namespace Battleship
     public partial class FindGame : Form
     {
         private TcpClient client;
-        private NetworkData data;
         string naam;
         Form oldForm;
         BinaryFormatter formatter;
         public FindGame(string naam,Form oldForm)
         {
-            data = new NetworkData();
             this.oldForm = oldForm;
             this.naam = naam;
             formatter = new BinaryFormatter();
