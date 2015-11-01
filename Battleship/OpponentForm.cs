@@ -18,9 +18,22 @@ namespace Battleship
         private Tuple<int, int> currentTarget;
         private Image cross, target;
         private Graphics g;
+        private ClientClass client;
+        private Server server;
 
-        public OpponentForm()
+        public OpponentForm(ClientClass client)
         {
+            this.client = client;
+            this.InitializeComponent();
+            shotsFired = new List<Tuple<int, int>>();
+            cross = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\cross.png");
+            target = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\target.png");
+            g = pictureBox1.CreateGraphics();
+        }
+
+        public OpponentForm(Server server)
+        {
+            this.server = server;
             this.InitializeComponent();
             shotsFired = new List<Tuple<int, int>>();
             cross = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\cross.png");

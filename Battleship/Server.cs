@@ -14,6 +14,11 @@ namespace Battleship
         private List<ServerClientThread> clients;
 
         public string naam;
+        public bool hit;
+        public Tuple<int, int> impact;
+        public bool victory = false;
+        public bool ready = false;
+
         public Server()
         {
             IPAddress localhost = IPAddress.Parse("127.0.0.1");

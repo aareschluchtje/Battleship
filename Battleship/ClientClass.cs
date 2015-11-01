@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -12,6 +13,10 @@ namespace Battleship
     {
         public ClientThread cl;
         public string naam;
+        public bool hit; 
+        public Tuple<int, int> impact;
+        public bool victory = false;
+        public bool ready = false;
 
         public ClientClass()
         {

@@ -21,8 +21,22 @@ namespace Battleship
         private Graphics g;
         private List<Image> images;
         private int rotation = 0;
+        private ClientClass client;
+        private Server server;
 
         public GameForm(ClientClass client)
+        {
+            StartGame();
+            this.client = client;
+        }
+
+        public GameForm(Server server)
+        {
+            StartGame();
+            this.server = server;
+        }
+
+        public void StartGame()
         {
             InitializeComponent();
             ReadyButton.Enabled = false;
@@ -30,6 +44,7 @@ namespace Battleship
             this.hits = new List<Tuple<int, int>>();
             this.g = pictureBox1.CreateGraphics();
             this.images = new List<Image>();
+            this.waitingLabel.Hide();
         }
 
         public void repaint()
@@ -160,11 +175,38 @@ namespace Battleship
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form opponentForm = new OpponentForm();
-            opponentForm.Show();
-            setup = false;
-            ReadyButton.Hide();
-            button_Reset.Hide();
+            if (client != null)
+            {
+                client.sendMessage("r+true");
+                if (client.ready)
+                {
+                    Form opponentForm = new OpponentForm(client);
+                    opponentForm.Show();
+                    setup = false;
+                    ReadyButton.Hide();
+                    button_Reset.Hide();
+                }
+                else
+                {
+                    waitingLabel.Show();
+                }
+            }
+            else if (server != null)
+            {
+                if (server.ready)
+                {
+                    server.sendMessage("r+true");
+                    Form opponentForm = new OpponentForm(server);
+                    opponentForm.Show();
+                    setup = false;
+                    ReadyButton.Hide();
+                    button_Reset.Hide();
+                }
+                else
+                {
+                    waitingLabel.Show();
+                }
+            }
         }
 
         private void button_Reset_Click(object sender, EventArgs e)

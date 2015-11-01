@@ -31,7 +31,29 @@ namespace Battleship
                 Console.WriteLine(message);
                 if (message != null)
                 {
-                    server.naam = message;
+                    if (message.StartsWith("p"))
+                    {
+                        server.naam = message.Remove(0, 2);
+                    }
+                    else if (message.StartsWith("h"))
+                    {
+                        server.hit = Boolean.Parse(message.Remove(0, 2));
+                    }
+                    else if (message.StartsWith("i"))
+                    {
+                        message = message.Remove(0, 2);
+                        string[] coordinates = message.Split(',');
+                        server.impact = new Tuple<int, int>(int.Parse(coordinates[0]), int.Parse(coordinates[1]));
+                    }
+                    else if (message.StartsWith("v"))
+                    {
+                        server.victory = Boolean.Parse(message.Remove(0, 2));
+                    }
+                    else if (message.StartsWith("r"))
+                    {
+                        server.ready = Boolean.Parse(message.Remove(0, 2));
+                    }
+                    Console.WriteLine(message);
                 }
             }
         }

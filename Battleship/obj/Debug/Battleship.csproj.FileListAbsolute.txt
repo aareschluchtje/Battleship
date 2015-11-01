@@ -34,3 +34,5 @@ C:\Users\kees\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.MenuFo
 C:\Users\kees\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.NewGame.resources
 C:\Users\kees\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.Properties.Resources.resources
 C:\Users\kees\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.csproj.GenerateResource.Cache
+C:\Users\Remco\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.FindGame.resources
+C:\Users\Remco\Documents\GitHub\Battleship\Battleship\obj\Debug\Battleship.OpponentForm.resources

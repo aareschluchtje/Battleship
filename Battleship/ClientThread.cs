@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
@@ -28,8 +29,32 @@ namespace Battleship
             while (true)
             {
                 string message = reader.ReadLine();
-                client.naam = message;
-                Console.WriteLine(client.naam);
+                if (message != null)
+                {
+                    if (message.StartsWith("p"))
+                    {
+                        client.naam = message.Remove(0,2);
+                    }
+                    else if (message.StartsWith("h"))
+                    {
+                        client.hit = Boolean.Parse(message.Remove(0, 2));
+                    }
+                    else if (message.StartsWith("i"))
+                    {
+                        message = message.Remove(0, 2);
+                        string[] coordinates = message.Split(',');
+                        client.impact = new Tuple<int, int>(int.Parse(coordinates[0]), int.Parse(coordinates[1]));
+                    }
+                    else if (message.StartsWith("v"))
+                    {
+                        client.victory = Boolean.Parse(message.Remove(0, 2));
+                    }
+                    else if (message.StartsWith("r"))
+                    {
+                        client.ready = Boolean.Parse(message.Remove(0, 2));
+                    }
+                }
+                Console.WriteLine(message);
             }
         }
 
