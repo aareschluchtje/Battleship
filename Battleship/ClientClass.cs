@@ -13,7 +13,7 @@ namespace Battleship
     {
         public ClientThread cl;
         public string naam;
-        public bool hit; 
+        public int hit = 0; 
         public Tuple<int, int> impact;
         public bool victory = false;
         public bool ready = false;

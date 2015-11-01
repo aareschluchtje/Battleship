@@ -30,6 +30,7 @@ namespace Battleship
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@ namespace Battleship
             this.button_Reset = new System.Windows.Forms.Button();
             this.button_Rotate = new System.Windows.Forms.Button();
             this.waitingLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatrolBoat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).BeginInit();
@@ -237,6 +239,10 @@ namespace Battleship
             this.waitingLabel.TabIndex = 13;
             this.waitingLabel.Text = "Waiting for opponent";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // GameForm
             // 
             this.ClientSize = new System.Drawing.Size(782, 809);
@@ -293,6 +299,7 @@ namespace Battleship
         private System.Windows.Forms.Button button_Reset;
         private System.Windows.Forms.Button button_Rotate;
         private System.Windows.Forms.Label waitingLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

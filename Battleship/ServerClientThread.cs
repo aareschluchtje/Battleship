@@ -37,7 +37,7 @@ namespace Battleship
                     }
                     else if (message.StartsWith("h"))
                     {
-                        server.hit = Boolean.Parse(message.Remove(0, 2));
+                        server.hit = int.Parse(message.Remove(0, 2));
                     }
                     else if (message.StartsWith("i"))
                     {

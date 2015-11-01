@@ -185,6 +185,7 @@ namespace Battleship
                     setup = false;
                     ReadyButton.Hide();
                     button_Reset.Hide();
+                    waitingLabel.Hide();
                 }
                 else
                 {
@@ -201,6 +202,7 @@ namespace Battleship
                     setup = false;
                     ReadyButton.Hide();
                     button_Reset.Hide();
+                    waitingLabel.Hide();
                 }
                 else
                 {
@@ -236,6 +238,39 @@ namespace Battleship
                 rotation = 0;
                 button_Rotate.ResetText();
                 button_Rotate.Text += " " + rotation;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            bool hit = false;
+            if (server != null)
+            {
+                if (server.impact != null)
+                {
+                    foreach (Ship ship in ships)
+                    {
+                        foreach (Tuple<int,int> coordinate in ship.getCoordinates())
+                        {
+                            if (hit = coordinate.Equals(server.impact))
+                                hit = true;
+                        }
+                    }
+                }
+            }
+            if (client != null)
+            {
+                if (client.impact != null)
+                {
+                    foreach (Ship ship in ships)
+                    {
+                        foreach (Tuple<int, int> coordinate in ship.getCoordinates())
+                        {
+                            if (coordinate.Equals(server.impact))
+                                hit = true;
+                        }
+                    }
+                }
             }
         }
     }

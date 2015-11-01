@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,9 +15,9 @@ namespace Battleship
     public partial class OpponentForm : Form
     {
         private bool wait = false;
-        private List<Tuple<int, int>> shotsFired;
+        private List<Tuple<int, int, bool>> shotsFired;
         private Tuple<int, int> currentTarget;
-        private Image cross, target;
+        private Image cross, target, hit;
         private Graphics g;
         private ClientClass client;
         private Server server;
@@ -25,9 +26,10 @@ namespace Battleship
         {
             this.client = client;
             this.InitializeComponent();
-            shotsFired = new List<Tuple<int, int>>();
+            shotsFired = new List<Tuple<int, int, bool>>();
             cross = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\cross.png");
             target = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\target.png");
+            hit = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\hit.png");
             g = pictureBox1.CreateGraphics();
         }
 
@@ -35,9 +37,10 @@ namespace Battleship
         {
             this.server = server;
             this.InitializeComponent();
-            shotsFired = new List<Tuple<int, int>>();
+            shotsFired = new List<Tuple<int, int, bool>>();
             cross = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\cross.png");
             target = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\target.png");
+            hit = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\hit.png");
             g = pictureBox1.CreateGraphics();
         }
 
@@ -46,7 +49,14 @@ namespace Battleship
             this.Refresh();
             for (int i = 0; i < shotsFired.Count; i++)
             {
-                g.DrawImage(cross, new Point(shotsFired[i].Item1,shotsFired[i].Item2));
+                if (shotsFired[i].Item3)
+                {
+                    g.DrawImage(hit, new Point(shotsFired[i].Item1, shotsFired[i].Item2));
+                }
+                else
+                {
+                    g.DrawImage(cross, new Point(shotsFired[i].Item1, shotsFired[i].Item2));
+                }
             }
             g.DrawImage(target, new Point(currentTarget.Item1, currentTarget.Item2));
         }
@@ -71,11 +81,51 @@ namespace Battleship
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (server != null)
+            {
+                if (wait)
+                {
+                    if (server.hit == 1)
+                    {
+                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, true));
+                    }
+                    else if (server.hit == 2)
+                    {
+                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, false));
+                    }
+                }   
+            }
+            if (client != null)
+            {
+                if (wait)
+                {
+                    if (client.hit == 1)
+                    {
+                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, true));
+                    }
+                    else if (client.hit == 2)
+                    {
+                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, false));
+                    }
+                }
+            }
+            Refresh();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            shotsFired.Add(currentTarget);
             Fire.Enabled = false;
             wait = true;
+            if (server != null)
+            {
+                server.sendMessage("i+" + currentTarget.Item1 + "," + currentTarget.Item2);
+            }
+            else
+            {
+                client.sendMessage("i+" + currentTarget.Item1 + "," + currentTarget.Item2);
+            }
         }
     }
 }
