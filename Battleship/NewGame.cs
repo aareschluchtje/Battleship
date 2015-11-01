@@ -83,12 +83,12 @@ namespace Battleship
         {
             if (isHost)
             {
-                server.sendMessage("bleh");
+                server.sendMessage(Player1);
                 label_Player2.Text += server.naam;
             }
             else
             {
-                client.sendMessage("hoi");
+                client.sendMessage(Player2);
                 label_PlayerOne.Text += client.naam;
             }
         }
