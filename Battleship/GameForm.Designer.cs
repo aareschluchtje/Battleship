@@ -47,6 +47,7 @@ namespace Battleship
             this.ReadyButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.button_Reset = new System.Windows.Forms.Button();
+            this.button_Rotate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatrolBoat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).BeginInit();
@@ -208,17 +209,28 @@ namespace Battleship
             // 
             // button_Reset
             // 
-            this.button_Reset.Location = new System.Drawing.Point(619, 179);
+            this.button_Reset.Location = new System.Drawing.Point(558, 553);
             this.button_Reset.Name = "button_Reset";
-            this.button_Reset.Size = new System.Drawing.Size(96, 31);
+            this.button_Reset.Size = new System.Drawing.Size(192, 29);
             this.button_Reset.TabIndex = 11;
             this.button_Reset.Text = "Reset";
             this.button_Reset.UseVisualStyleBackColor = true;
             this.button_Reset.Click += new System.EventHandler(this.button_Reset_Click);
             // 
+            // button_Rotate
+            // 
+            this.button_Rotate.Location = new System.Drawing.Point(558, 588);
+            this.button_Rotate.Name = "button_Rotate";
+            this.button_Rotate.Size = new System.Drawing.Size(192, 29);
+            this.button_Rotate.TabIndex = 12;
+            this.button_Rotate.Text = "Rotate Angle:";
+            this.button_Rotate.UseVisualStyleBackColor = true;
+            this.button_Rotate.Click += new System.EventHandler(this.button_Rotate_Click);
+            // 
             // GameForm
             // 
             this.ClientSize = new System.Drawing.Size(782, 809);
+            this.Controls.Add(this.button_Rotate);
             this.Controls.Add(this.button_Reset);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ReadyButton);
@@ -268,6 +280,7 @@ namespace Battleship
         private System.Windows.Forms.Button ReadyButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button_Reset;
+        private System.Windows.Forms.Button button_Rotate;
     }
 }
 

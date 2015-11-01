@@ -19,7 +19,8 @@ namespace Battleship
         private bool setup = true;
         private List<Tuple<int, int>> hits;
         private Graphics g;
-        private List<Image> images; 
+        private List<Image> images;
+        private int rotation = 0;
 
         public GameForm(ClientClass client)
         {
@@ -36,9 +37,10 @@ namespace Battleship
             this.Refresh();
             for(int i = 0; i < images.Count; i++)
             {
+                g.TranslateTransform(ships[i].Location.X, ships[i].Location.Y);
                 g.RotateTransform(ships[i].Rotation);
-                g.DrawImage(images[i], ships[i].Location);
-                g.RotateTransform(-ships[i].Rotation);
+                g.DrawImage(images[i], new Point(0,0));
+                g.ResetTransform();
             }
         }
 
@@ -57,7 +59,7 @@ namespace Battleship
                     {
                         images.Add(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\patrol-boat.png"));
                         PatrolBoat.BackColor = Color.Red;
-                        ships.Add(new Ship(new Point(x, y), Ship.ShipType.PATROLBOAT, 0));
+                        ships.Add(new Ship(new Point(x, y), Ship.ShipType.PATROLBOAT, rotation));
                     }
                     else if (Destroyer.BackColor == Color.Green || Submarine.BackColor == Color.Green)
                     {
@@ -65,25 +67,25 @@ namespace Battleship
                         if (Destroyer.BackColor == Color.Green)
                         {
                             Destroyer.BackColor = Color.Red;
-                            ships.Add(new Ship(new Point(x, y), Ship.ShipType.DESTROYER, 0));
+                            ships.Add(new Ship(new Point(x, y), Ship.ShipType.DESTROYER, rotation));
                         }
                         else
                         {
                             Submarine.BackColor = Color.Red;
-                            ships.Add(new Ship(new Point(x, y), Ship.ShipType.SUBMARINE, 0));
+                            ships.Add(new Ship(new Point(x, y), Ship.ShipType.SUBMARINE, rotation));
                         }
                     }
                     else if (Battleship.BackColor == Color.Green)
                     {
                         images.Add(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\Battleship.png"));
                         Battleship.BackColor = Color.Red;
-                        ships.Add(new Ship(new Point(x, y), Ship.ShipType.BATTLESHIP, 0));
+                        ships.Add(new Ship(new Point(x, y), Ship.ShipType.BATTLESHIP, rotation));
                     }
                     else if (AircraftCarrier.BackColor == Color.Green)
                     {
                         images.Add(new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\Aircraft-carrier.png"));
                         AircraftCarrier.BackColor = Color.Red;
-                        ships.Add(new Ship(new Point(x, y), Ship.ShipType.AIRCRAFTCARRIER, 0));
+                        ships.Add(new Ship(new Point(x, y), Ship.ShipType.AIRCRAFTCARRIER, rotation));
                     }
                     if (PatrolBoat.BackColor == Color.Red && Destroyer.BackColor == Color.Red &&
                         Submarine.BackColor == Color.Red && Battleship.BackColor == Color.Red &&
@@ -177,6 +179,22 @@ namespace Battleship
             this.g = pictureBox1.CreateGraphics();
             this.images = new List<Image>();
             repaint();
+        }
+
+        private void button_Rotate_Click(object sender, EventArgs e)
+        {
+            if(rotation == 0)
+            {
+                rotation = 90;
+                button_Rotate.ResetText();
+                button_Rotate.Text += " " + rotation;
+            }
+            else
+            {
+                rotation = 0;
+                button_Rotate.ResetText();
+                button_Rotate.Text += " " + rotation;
+            }
         }
     }
 }
