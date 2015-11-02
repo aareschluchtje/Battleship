@@ -13,9 +13,11 @@ namespace Battleship
 {
     public partial class MenuForm : Form
     {
+        saveUser s = save;
         public MenuForm()
         {
             InitializeComponent();
+            
             try
             {   // Open the text file using a stream reader.
                 using (StreamReader sr = new StreamReader("last_user.txt"))
@@ -48,7 +50,7 @@ namespace Battleship
         {
             Form y = new FindGame(textBox_Name.Text,this);
             y.Show();
-            saveUser(textBox_Name.Text);
+            s(textBox_Name.Text);
             this.Hide();
         }
 
@@ -56,7 +58,7 @@ namespace Battleship
         {
             Form z = new NewGame(true,textBox_Name.Text,this);
             z.Show();
-            saveUser(textBox_Name.Text);
+            s(textBox_Name.Text);
             this.Hide();
         }
 
@@ -65,7 +67,9 @@ namespace Battleship
 
         }
 
-        private void saveUser(string name)
+        private delegate void saveUser(string name);
+
+        private static void save(string name)
         {
             string[] temp = { name};
             System.IO.File.WriteAllLines("last_user.txt", temp);
