@@ -91,7 +91,7 @@ namespace Battleship
                 {
                     if (server.hit == 2)
                     {
-                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, true));
+                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1/50, currentTarget.Item2/50, true));
                         wait = false;
                         Fire.Enabled = true;
                         currentTarget = new Tuple<int, int>(0, 0);
@@ -99,7 +99,7 @@ namespace Battleship
                     }
                     else if (server.hit == 1)
                     {
-                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, false));
+                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1/50, currentTarget.Item2/50, false));
                         wait = false;
                         Fire.Enabled = true;
                         currentTarget = new Tuple<int, int>(0, 0);
@@ -140,7 +140,7 @@ namespace Battleship
             {
                 server.sendMessage("i+" + (currentTarget.Item1/50) + "," + (currentTarget.Item2/50));
             }
-            else
+            if (client != null)
             {
                 client.sendMessage("i+" + (currentTarget.Item1/50) + "," + (currentTarget.Item2/50));
             }

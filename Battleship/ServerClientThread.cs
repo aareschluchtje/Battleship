@@ -33,7 +33,7 @@ namespace Battleship
                 {
                     if (message.StartsWith("p"))
                     {
-                        server.naam = message.Remove(0, 2);
+                        server.name = message.Remove(0, 2);
                     }
                     else if (message.StartsWith("h"))
                     {

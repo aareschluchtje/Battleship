@@ -12,7 +12,7 @@ namespace Battleship
     public class ClientClass
     {
         public ClientThread cl;
-        public string naam;
+        public string name;
         public int hit = 0; 
         public Tuple<int, int> impact;
         public bool victory = false;
@@ -22,7 +22,6 @@ namespace Battleship
         {
             TcpClient tcpclient = new TcpClient("127.0.0.1", 1000);
             cl = new ClientThread(tcpclient, this);
-
             Thread thread = new Thread(cl.run);
             thread.Start();
         }

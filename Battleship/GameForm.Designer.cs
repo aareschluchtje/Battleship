@@ -51,6 +51,7 @@ namespace Battleship
             this.button_Rotate = new System.Windows.Forms.Button();
             this.waitingLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.LabelPlayerNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatrolBoat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).BeginInit();
@@ -203,7 +204,7 @@ namespace Battleship
             // 
             this.Labelname.AutoSize = true;
             this.Labelname.Font = new System.Drawing.Font("Impact", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Labelname.Location = new System.Drawing.Point(627, 79);
+            this.Labelname.Location = new System.Drawing.Point(611, 78);
             this.Labelname.Name = "Labelname";
             this.Labelname.Size = new System.Drawing.Size(83, 41);
             this.Labelname.TabIndex = 10;
@@ -244,9 +245,19 @@ namespace Battleship
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // LabelPlayerNumber
+            // 
+            this.LabelPlayerNumber.AutoSize = true;
+            this.LabelPlayerNumber.Location = new System.Drawing.Point(642, 119);
+            this.LabelPlayerNumber.Name = "LabelPlayerNumber";
+            this.LabelPlayerNumber.Size = new System.Drawing.Size(52, 17);
+            this.LabelPlayerNumber.TabIndex = 14;
+            this.LabelPlayerNumber.Text = "Player ";
+            // 
             // GameForm
             // 
             this.ClientSize = new System.Drawing.Size(782, 809);
+            this.Controls.Add(this.LabelPlayerNumber);
             this.Controls.Add(this.waitingLabel);
             this.Controls.Add(this.button_Rotate);
             this.Controls.Add(this.button_Reset);
@@ -301,6 +312,7 @@ namespace Battleship
         private System.Windows.Forms.Button button_Rotate;
         private System.Windows.Forms.Label waitingLabel;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label LabelPlayerNumber;
     }
 }
 

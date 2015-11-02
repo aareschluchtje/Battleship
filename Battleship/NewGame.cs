@@ -93,13 +93,13 @@ namespace Battleship
             if (isHost && label_Player2.Text.Length < 10)
             {
                 server.sendMessage("p+" + Player1);
-                label_Player2.Text += server.naam;
+                label_Player2.Text += server.name;
             }
             else if(label_PlayerOne.Text.Length < 10 && !isHost)
             {
                 client.sendMessage("p+" + Player2);
-                label_PlayerOne.Text += client.naam;
-                if (client.naam != null)
+                label_PlayerOne.Text += client.name;
+                if (client.name != null)
                 {
                     this.button_Start.Show();
                 }

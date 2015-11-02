@@ -24,19 +24,23 @@ namespace Battleship
         private ClientClass client;
         private Server server;
         private string name;
+        private bool defeat, victory = false;
+        private Image hit;
 
         public GameForm(ClientClass client, string name)
         {
-            this.name = name.Remove(0,9);
+            this.name = name.Remove(0,9).Replace(System.Environment.NewLine, "");
             this.client = client;
             StartGame();
+            this.LabelPlayerNumber.Text += "2";
         }
 
         public GameForm(Server server, string name)
         {
-            this.server = server;
-            this.name = name.Remove(0,9);
+            this.server = server; 
+            this.name = name.Remove(0,9).Replace(System.Environment.NewLine, "");
             StartGame();
+            this.LabelPlayerNumber.Text += "1";
         }
 
         public void StartGame()
@@ -50,6 +54,7 @@ namespace Battleship
             this.waitingLabel.Hide();
             this.timer1.Start();
             this.Labelname.Text = name + " " + Labelname.Text;
+            this.hit = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\hit.png");
         }
 
         public void repaint()
@@ -61,6 +66,10 @@ namespace Battleship
                 g.RotateTransform(ships[i].Rotation);
                 g.DrawImage(images[i], new Point(0,0));
                 g.ResetTransform();
+            }
+            for (int i = 0; i < hits.Count; i++)
+            {
+                g.DrawImage(hit, new Point(hits[i].Item1, hits[i].Item2));
             }
         }
 
@@ -112,16 +121,6 @@ namespace Battleship
                         AircraftCarrier.BackColor == Color.Red)
                     {
                         ReadyButton.Enabled = true;
-                    }
-                }
-                else if (eventArgs.Button == MouseButtons.Right)
-                {
-                    foreach(Ship ship in ships)
-                    {
-                        if (ship.Location.X == MousePosition.X && ship.Location.Y == MousePosition.Y)
-                        {
-                            
-                        }
                     }
                 }
             }
@@ -258,12 +257,21 @@ namespace Battleship
                         foreach (Tuple<int,int> coordinate in ship.getCoordinates())
                         {
                             if (coordinate.Equals(server.impact))
+                            {
                                 hit = 2;
+                                hits.Add(coordinate);
+                            }
                         }
                     }
                     server.sendMessage("h+" + hit);
                     server.impact = null;
                 }
+                if (hits.Count > 16)
+                {
+                    defeat = true;
+                    server.sendMessage("v+" + true);
+                }
+                victory = server.victory;
             }
             if (client != null)
             {
@@ -274,12 +282,21 @@ namespace Battleship
                         foreach (Tuple<int, int> coordinate in ship.getCoordinates())
                         {
                             if (coordinate.Equals(client.impact))
+                            {
                                 hit = 2;
+                                hits.Add(coordinate);
+                            }
                         }
                     }
                     client.sendMessage("h+" + hit);
                     client.impact = null;
                 }
+                if (hits.Count > 16)
+                {
+                    defeat = true;
+                    client.sendMessage("v+" + true);
+                }
+                victory = client.victory;
             }
             repaint();
         }
