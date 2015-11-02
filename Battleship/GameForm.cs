@@ -23,17 +23,20 @@ namespace Battleship
         private int rotation = 0;
         private ClientClass client;
         private Server server;
+        private string name;
 
-        public GameForm(ClientClass client)
+        public GameForm(ClientClass client, string name)
         {
-            StartGame();
+            this.name = name.Remove(0,9);
             this.client = client;
+            StartGame();
         }
 
-        public GameForm(Server server)
+        public GameForm(Server server, string name)
         {
-            StartGame();
             this.server = server;
+            this.name = name.Remove(0,9);
+            StartGame();
         }
 
         public void StartGame()
@@ -45,6 +48,8 @@ namespace Battleship
             this.g = pictureBox1.CreateGraphics();
             this.images = new List<Image>();
             this.waitingLabel.Hide();
+            this.timer1.Start();
+            this.Labelname.Text = name + " " + Labelname.Text;
         }
 
         public void repaint()
@@ -257,6 +262,7 @@ namespace Battleship
                         }
                     }
                     server.sendMessage("h+" + hit);
+                    server.impact = null;
                 }
             }
             if (client != null)
@@ -267,13 +273,20 @@ namespace Battleship
                     {
                         foreach (Tuple<int, int> coordinate in ship.getCoordinates())
                         {
-                            if (coordinate.Equals(server.impact))
+                            if (coordinate.Equals(client.impact))
                                 hit = 2;
                         }
                     }
                     client.sendMessage("h+" + hit);
+                    client.impact = null;
                 }
             }
+            repaint();
+        }
+
+        private void Labelname_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

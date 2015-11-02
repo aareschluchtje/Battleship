@@ -46,7 +46,7 @@ namespace Battleship
             this.label6 = new System.Windows.Forms.Label();
             this.PositionLabel = new System.Windows.Forms.Label();
             this.ReadyButton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.Labelname = new System.Windows.Forms.Label();
             this.button_Reset = new System.Windows.Forms.Button();
             this.button_Rotate = new System.Windows.Forms.Button();
             this.waitingLabel = new System.Windows.Forms.Label();
@@ -199,16 +199,17 @@ namespace Battleship
             this.ReadyButton.UseVisualStyleBackColor = true;
             this.ReadyButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label7
+            // Labelname
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Impact", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(627, 79);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 41);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "You";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Labelname.AutoSize = true;
+            this.Labelname.Font = new System.Drawing.Font("Impact", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Labelname.Location = new System.Drawing.Point(627, 79);
+            this.Labelname.Name = "Labelname";
+            this.Labelname.Size = new System.Drawing.Size(83, 41);
+            this.Labelname.TabIndex = 10;
+            this.Labelname.Text = "- You";
+            this.Labelname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Labelname.Click += new System.EventHandler(this.Labelname_Click);
             // 
             // button_Reset
             // 
@@ -249,7 +250,7 @@ namespace Battleship
             this.Controls.Add(this.waitingLabel);
             this.Controls.Add(this.button_Rotate);
             this.Controls.Add(this.button_Reset);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.Labelname);
             this.Controls.Add(this.ReadyButton);
             this.Controls.Add(this.PositionLabel);
             this.Controls.Add(this.label6);
@@ -295,7 +296,7 @@ namespace Battleship
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label PositionLabel;
         private System.Windows.Forms.Button ReadyButton;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label Labelname;
         private System.Windows.Forms.Button button_Reset;
         private System.Windows.Forms.Button button_Rotate;
         private System.Windows.Forms.Label waitingLabel;

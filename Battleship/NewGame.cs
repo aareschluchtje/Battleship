@@ -68,11 +68,11 @@ namespace Battleship
             Form temp = null;
             if (isHost)
             {
-                temp = new GameForm(server);
+                temp = new GameForm(server, label_PlayerOne.Text);
             }
             else
             {
-                temp = new GameForm(client);
+                temp = new GameForm(client, label_Player2.Text);
             }
             this.Hide();
             temp.Show();
@@ -90,12 +90,12 @@ namespace Battleship
 
         private void button_LoadGame_Click(object sender, EventArgs e)
         {
-            if (isHost)
+            if (isHost && label_Player2.Text.Length < 10)
             {
                 server.sendMessage("p+" + Player1);
                 label_Player2.Text += server.naam;
             }
-            else
+            else if(label_PlayerOne.Text.Length < 10 && !isHost)
             {
                 client.sendMessage("p+" + Player2);
                 label_PlayerOne.Text += client.naam;
