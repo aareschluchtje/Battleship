@@ -57,7 +57,7 @@ namespace Battleship
             this.Refresh();
             for(int i = 0; i < images.Count; i++)
             {
-                g.TranslateTransform(ships[i].Location.X, ships[i].Location.Y);
+                g.TranslateTransform(ships[i].Location.X+50, ships[i].Location.Y );
                 g.RotateTransform(ships[i].Rotation);
                 g.DrawImage(images[i], new Point(0,0));
                 g.ResetTransform();
