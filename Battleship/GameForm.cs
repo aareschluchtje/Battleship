@@ -243,7 +243,7 @@ namespace Battleship
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            bool hit = false;
+            int hit = 1;
             if (server != null)
             {
                 if (server.impact != null)
@@ -252,10 +252,11 @@ namespace Battleship
                     {
                         foreach (Tuple<int,int> coordinate in ship.getCoordinates())
                         {
-                            if (hit = coordinate.Equals(server.impact))
-                                hit = true;
+                            if (coordinate.Equals(server.impact))
+                                hit = 2;
                         }
                     }
+                    server.sendMessage("h+" + hit);
                 }
             }
             if (client != null)
@@ -267,9 +268,10 @@ namespace Battleship
                         foreach (Tuple<int, int> coordinate in ship.getCoordinates())
                         {
                             if (coordinate.Equals(server.impact))
-                                hit = true;
+                                hit = 2;
                         }
                     }
+                    client.sendMessage("h+" + hit);
                 }
             }
         }

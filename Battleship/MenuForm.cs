@@ -76,14 +76,5 @@ namespace Battleship
         {
 
         }
-
-        private void button_LoadUser_Click(object sender, EventArgs e)
-        {
-            DialogResult result=openFileDialog1.ShowDialog();
-            if(result == DialogResult.OK)
-            {
-                Console.WriteLine(result.ToString());
-            }
-        }
     }
 }

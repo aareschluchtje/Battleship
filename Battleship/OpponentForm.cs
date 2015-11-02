@@ -51,11 +51,11 @@ namespace Battleship
             {
                 if (shotsFired[i].Item3)
                 {
-                    g.DrawImage(hit, new Point(shotsFired[i].Item1, shotsFired[i].Item2));
+                    g.DrawImage(hit, new Point(shotsFired[i].Item1*50, shotsFired[i].Item2*50));
                 }
                 else
                 {
-                    g.DrawImage(cross, new Point(shotsFired[i].Item1, shotsFired[i].Item2));
+                    g.DrawImage(cross, new Point(shotsFired[i].Item1*50, shotsFired[i].Item2*50));
                 }
             }
             g.DrawImage(target, new Point(currentTarget.Item1, currentTarget.Item2));
@@ -90,12 +90,14 @@ namespace Battleship
                     if (server.hit == 1)
                     {
                         shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, true));
+                        wait = false;
                     }
                     else if (server.hit == 2)
                     {
                         shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, false));
+                        wait = false;
                     }
-                }   
+                }
             }
             if (client != null)
             {
@@ -103,11 +105,15 @@ namespace Battleship
                 {
                     if (client.hit == 1)
                     {
-                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, true));
+                        shotsFired.Add(new Tuple<int, int, bool>((currentTarget.Item1/50), currentTarget.Item2/50, true));
+                        wait = false;
+                        currentTarget = new Tuple<int, int>(0,0);
                     }
                     else if (client.hit == 2)
                     {
-                        shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1, currentTarget.Item2, false));
+                        shotsFired.Add(new Tuple<int, int, bool>((currentTarget.Item1/50), currentTarget.Item2/50, false));
+                        wait = false;
+                        currentTarget = new Tuple<int, int>(0,0);
                     }
                 }
             }
@@ -120,11 +126,11 @@ namespace Battleship
             wait = true;
             if (server != null)
             {
-                server.sendMessage("i+" + currentTarget.Item1 + "," + currentTarget.Item2);
+                server.sendMessage("i+" + (currentTarget.Item1/50) + "," + (currentTarget.Item2/50));
             }
             else
             {
-                client.sendMessage("i+" + currentTarget.Item1 + "," + currentTarget.Item2);
+                client.sendMessage("i+" + (currentTarget.Item1/50) + "," + (currentTarget.Item2/50));
             }
         }
     }
