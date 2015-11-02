@@ -26,8 +26,6 @@ namespace Battleship
             this.oldForm = oldForm;
             Player1 = name; 
             server = new Server();
-            this.ip = null;
-            this.port = null;
             this.isHost = isHost;
             InitializeComponent();
             this.button_Start.Hide();

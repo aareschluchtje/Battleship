@@ -39,6 +39,7 @@ namespace Battleship
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelVictory = new System.Windows.Forms.Label();
             this.labelDefeat = new System.Windows.Forms.Label();
+            this.labelWaitingForEnemy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,9 +117,19 @@ namespace Battleship
             this.labelDefeat.TabIndex = 3;
             this.labelDefeat.Text = "Defeat!";
             // 
+            // labelWaitingForEnemy
+            // 
+            this.labelWaitingForEnemy.AutoSize = true;
+            this.labelWaitingForEnemy.Location = new System.Drawing.Point(597, 271);
+            this.labelWaitingForEnemy.Name = "labelWaitingForEnemy";
+            this.labelWaitingForEnemy.Size = new System.Drawing.Size(162, 17);
+            this.labelWaitingForEnemy.TabIndex = 5;
+            this.labelWaitingForEnemy.Text = "Waiting for enemy to fire";
+            // 
             // OpponentForm
             // 
             this.ClientSize = new System.Drawing.Size(811, 622);
+            this.Controls.Add(this.labelWaitingForEnemy);
             this.Controls.Add(this.labelDefeat);
             this.Controls.Add(this.labelVictory);
             this.Controls.Add(this.Fire);
@@ -144,5 +155,6 @@ namespace Battleship
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelVictory;
         private System.Windows.Forms.Label labelDefeat;
+        private System.Windows.Forms.Label labelWaitingForEnemy;
     }
 }

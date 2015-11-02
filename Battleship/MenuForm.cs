@@ -17,7 +17,7 @@ namespace Battleship
         public MenuForm()
         {
             InitializeComponent();
-            
+            labelWaiting.Hide();
             try
             {   // Open the text file using a stream reader.
                 using (StreamReader sr = new StreamReader("last_user.txt"))
@@ -56,6 +56,7 @@ namespace Battleship
 
         private void button_NewGame_Click(object sender, EventArgs e)
         {
+            labelWaiting.Show();
             Form z = new NewGame(true,textBox_Name.Text,this);
             z.Show();
             s(textBox_Name.Text);

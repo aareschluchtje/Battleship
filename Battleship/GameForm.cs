@@ -272,7 +272,7 @@ namespace Battleship
                     wait = false;
                     server.impact = null;
                 }
-                if (hits.Count > 18)
+                if (hits.Count > 16)
                 {
                     server.sendMessage("v+" + true);
                     labelDefeat.Show();
@@ -298,7 +298,7 @@ namespace Battleship
                     wait = false;
                     client.impact = null;
                 }
-                if (hits.Count > 18)
+                if (hits.Count > 16)
                 {
                     client.sendMessage("v+" + true);
                     labelDefeat.Show();

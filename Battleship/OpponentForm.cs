@@ -51,6 +51,7 @@ namespace Battleship
             labelVictory.Hide();
             labelDefeat.Hide();
             this.victoryCount = 0;
+            labelWaitingForEnemy.Hide();
         }
 
         public void repaint()
@@ -161,12 +162,17 @@ namespace Battleship
                 this.Hide();
                 form.Hide();
             }
+            if (!form.wait)
+            {
+                labelWaitingForEnemy.Hide();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Fire.Enabled = false;
             form.wait = true;
+            labelWaitingForEnemy.Show();
             if (server != null)
             {
                 server.sendMessage("i+" + (currentTarget.Item1/50) + "," + (currentTarget.Item2/50+1));
