@@ -41,8 +41,7 @@ namespace Battleship
 
         private void button_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            
+            Application.Exit();
         }
 
 
@@ -80,6 +79,10 @@ namespace Battleship
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

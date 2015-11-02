@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAiYAAAImCAYAAABnzkFGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFuxSURBVHhe7Z0J
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFuxSURBVHhe7Z0J
         2HXXeP5PiHmMMah5nmoqRSk1lVZbLW21tMaaWlRpQw0lqCDGGBIzMcZM0IqZmBJDEhHRBCGTIHNk9v/f
         z+c87fr2We/77rP32nvd63H/rut3Oc53zj7rzlrnfe/3nD0swP+TUkoppSRx8V+dO34Fd5nRXeFuhbSx
         p1m67g1zz2Pyc7A77r0a9GuwZA6bu30qeDDs5sg9rob7wv16+j+wmyP3OHa3yrE/PLABj4bdHLnHlfBQ
@@ -519,7 +519,7 @@
   <data name="PatrolBoat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAAAyCAYAAACqNX6+AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAC4SURBVHhe7dwh
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAC4SURBVHhe7dwh
         DsMwFAXB3P8+vVZRUUFblyWSFWgvmJUe8KfDfYy+ltr0aPs2Pdq+XR7vsact3WfsbHB5PP4HLe01dja4
         PICsD0gsILGAxAISC0gsILGAxAISC0gsILGAxAISC0gsILGAxAISC0gsILGAxAISC0gsILGAxAISC0gs
         ILGAxAISC0gsILGAxAISC0gsILGAxAISC0gsILGAxAIS6xbE1xrrd/u1hu3f9Gj7Nj3alh3fH/FoUZcX
@@ -529,7 +529,7 @@
   <data name="Destroyer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJYAAAAyCAYAAAC+jCIaAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADISURBVHhe7d0x
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADISURBVHhe7d0x
         DsIwEEVB7n8SxOHoqYJpExexzOtmpN9s/fp9DIdZsOnRbHfTo9nupkez3V0On7G32cJ+zZw7uhxeY7Di
         OXbu6HIQFquERUJYJIRFQlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERUJYJIRF
         QlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERUJYJG6F5YGAre7WAwGzf2x6NNvd
@@ -539,7 +539,7 @@
   <data name="Battleship.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyCAYAAAAZUZThAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADPSURBVHhe7d2x
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADPSURBVHhe7d2x
         DQJBEATBD5u8MAmFEAgCDp0HSwv/q6R21h97j+Up6WfjUdJuPErajUdJu/EoaTce76ubdLIeq88tfB3e
         XVZwNtfV5xa+Du8MhDMyEAgGAsFAIBgIBAOBYCAQDASCgUAwEAgGAsFAIBgIBAOBYCAQDASCgUAwEAgG
         AsFAIBgIBAOBYCAQDASCgUAwEAgGAsFAIBgIBAOBYCAQDASCgUAwEAgGAsFAIBgIhL8H4g20ztjfb6Al
@@ -549,7 +549,7 @@
   <data name="AircraftCarrier.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAPwAAAAzCAYAAACzFWUGAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADoSURBVHhe7dOh
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADoSURBVHhe7dOh
         EcNAEARB55+jgeMQsPX8kJluuquGLN/X7Ssp0zhK2tk4StrZOEra2ThK2tk4StrZOJ6uu7ekx3W+O336
         NI6nzx3wPOe706dP43hyeHgmh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQ
         h4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQh4cQ
@@ -560,7 +560,7 @@
   <data name="Submarine.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJYAAAAyCAYAAAC+jCIaAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADISURBVHhe7d0x
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADISURBVHhe7d0x
         DsIwEEVB7n8SxOHoqYJpExexzOtmpN9s/fp9DIdZsOnRbHfTo9nupkez3V0On7G32cJ+zZw7uhxeY7Di
         OXbu6HIQFquERUJYJIRFQlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERUJYJIRF
         QlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERUJYJIRFQlgkhEVCWCSERUJYJG6F5YGAre7WAwGzf2x6NNvd
