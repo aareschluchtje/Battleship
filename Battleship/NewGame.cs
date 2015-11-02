@@ -74,8 +74,8 @@ namespace Battleship
             {
                 temp = new GameForm(client, label_Player2.Text);
             }
-            this.Hide();
             temp.Show();
+            this.Hide();
         }
 
         private void NewGame_Load(object sender, EventArgs e)

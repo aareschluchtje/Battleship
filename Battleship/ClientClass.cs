@@ -38,5 +38,10 @@ namespace Battleship
         {
             cl.sendMessage(message);
         }
+
+        public void closeConnection()
+        {
+            cl.closeConnection();
+        }
     }
 }

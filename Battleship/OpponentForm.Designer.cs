@@ -37,6 +37,8 @@ namespace Battleship
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelVictory = new System.Windows.Forms.Label();
+            this.labelDefeat = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,9 +94,33 @@ namespace Battleship
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // labelVictory
+            // 
+            this.labelVictory.AutoSize = true;
+            this.labelVictory.BackColor = System.Drawing.Color.Transparent;
+            this.labelVictory.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVictory.Location = new System.Drawing.Point(63, 240);
+            this.labelVictory.Name = "labelVictory";
+            this.labelVictory.Size = new System.Drawing.Size(445, 145);
+            this.labelVictory.TabIndex = 3;
+            this.labelVictory.Text = "Victory!";
+            // 
+            // labelDefeat
+            // 
+            this.labelDefeat.AutoSize = true;
+            this.labelDefeat.BackColor = System.Drawing.Color.Transparent;
+            this.labelDefeat.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDefeat.Location = new System.Drawing.Point(77, 240);
+            this.labelDefeat.Name = "labelDefeat";
+            this.labelDefeat.Size = new System.Drawing.Size(414, 145);
+            this.labelDefeat.TabIndex = 3;
+            this.labelDefeat.Text = "Defeat!";
+            // 
             // OpponentForm
             // 
             this.ClientSize = new System.Drawing.Size(811, 622);
+            this.Controls.Add(this.labelDefeat);
+            this.Controls.Add(this.labelVictory);
             this.Controls.Add(this.Fire);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -116,5 +142,7 @@ namespace Battleship
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labelVictory;
+        private System.Windows.Forms.Label labelDefeat;
     }
 }

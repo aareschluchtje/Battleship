@@ -41,5 +41,13 @@ namespace Battleship
         {
             clients[0].writeMessage(message);
         }
+
+        public void closeConnection()
+        {
+            foreach (ServerClientThread client in clients)
+            {
+                client.closeConnection();
+            }
+        }
     }
 }

@@ -52,6 +52,8 @@ namespace Battleship
             this.waitingLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.LabelPlayerNumber = new System.Windows.Forms.Label();
+            this.labelVictory = new System.Windows.Forms.Label();
+            this.labelDefeat = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatrolBoat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).BeginInit();
@@ -204,7 +206,7 @@ namespace Battleship
             // 
             this.Labelname.AutoSize = true;
             this.Labelname.Font = new System.Drawing.Font("Impact", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Labelname.Location = new System.Drawing.Point(611, 78);
+            this.Labelname.Location = new System.Drawing.Point(558, 78);
             this.Labelname.Name = "Labelname";
             this.Labelname.Size = new System.Drawing.Size(83, 41);
             this.Labelname.TabIndex = 10;
@@ -254,9 +256,33 @@ namespace Battleship
             this.LabelPlayerNumber.TabIndex = 14;
             this.LabelPlayerNumber.Text = "Player ";
             // 
+            // labelVictory
+            // 
+            this.labelVictory.AutoSize = true;
+            this.labelVictory.BackColor = System.Drawing.Color.Transparent;
+            this.labelVictory.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVictory.Location = new System.Drawing.Point(70, 229);
+            this.labelVictory.Name = "labelVictory";
+            this.labelVictory.Size = new System.Drawing.Size(445, 145);
+            this.labelVictory.TabIndex = 15;
+            this.labelVictory.Text = "Victory!";
+            // 
+            // labelDefeat
+            // 
+            this.labelDefeat.AutoSize = true;
+            this.labelDefeat.BackColor = System.Drawing.Color.Transparent;
+            this.labelDefeat.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDefeat.Location = new System.Drawing.Point(85, 229);
+            this.labelDefeat.Name = "labelDefeat";
+            this.labelDefeat.Size = new System.Drawing.Size(414, 145);
+            this.labelDefeat.TabIndex = 15;
+            this.labelDefeat.Text = "Defeat!";
+            // 
             // GameForm
             // 
             this.ClientSize = new System.Drawing.Size(782, 809);
+            this.Controls.Add(this.labelDefeat);
+            this.Controls.Add(this.labelVictory);
             this.Controls.Add(this.LabelPlayerNumber);
             this.Controls.Add(this.waitingLabel);
             this.Controls.Add(this.button_Rotate);
@@ -279,7 +305,6 @@ namespace Battleship
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GameForm";
             this.Text = "Battleship";
-            this.Load += new System.EventHandler(this.GameForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatrolBoat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).EndInit();
@@ -313,6 +338,8 @@ namespace Battleship
         private System.Windows.Forms.Label waitingLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label LabelPlayerNumber;
+        private System.Windows.Forms.Label labelVictory;
+        private System.Windows.Forms.Label labelDefeat;
     }
 }
 

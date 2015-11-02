@@ -24,7 +24,8 @@ namespace Battleship
         private ClientClass client;
         private Server server;
         private string name;
-        private bool defeat, victory = false;
+        private bool victory;
+        public bool wait;
         private Image hit;
 
         public GameForm(ClientClass client, string name)
@@ -55,6 +56,10 @@ namespace Battleship
             this.timer1.Start();
             this.Labelname.Text = name + " " + Labelname.Text;
             this.hit = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\hit.png");
+            this.labelVictory.Hide();
+            this.labelDefeat.Hide();
+            this.wait = false;
+            this.victory = false;
         }
 
         public void repaint()
@@ -135,11 +140,6 @@ namespace Battleship
 
         }
 
-        private void GameForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             if(PatrolBoat.BackColor != Color.Red)
@@ -187,7 +187,7 @@ namespace Battleship
                 client.sendMessage("r+true");
                 if (client.ready)
                 {
-                    Form opponentForm = new OpponentForm(client);
+                    Form opponentForm = new OpponentForm(client, this);
                     opponentForm.Show();
                     setup = false;
                     ReadyButton.Hide();
@@ -204,7 +204,7 @@ namespace Battleship
                 if (server.ready)
                 {
                     server.sendMessage("r+true");
-                    Form opponentForm = new OpponentForm(server);
+                    Form opponentForm = new OpponentForm(server, this);
                     opponentForm.Show();
                     setup = false;
                     ReadyButton.Hide();
@@ -267,12 +267,13 @@ namespace Battleship
                         }
                     }
                     server.sendMessage("h+" + hit);
+                    wait = false;
                     server.impact = null;
                 }
                 if (hits.Count > 16)
                 {
-                    defeat = true;
                     server.sendMessage("v+" + true);
+                    labelDefeat.Show();
                 }
                 victory = server.victory;
             }
@@ -292,14 +293,19 @@ namespace Battleship
                         }
                     }
                     client.sendMessage("h+" + hit);
+                    wait = false;
                     client.impact = null;
                 }
                 if (hits.Count > 16)
                 {
-                    defeat = true;
                     client.sendMessage("v+" + true);
+                    labelDefeat.Show();
                 }
                 victory = client.victory;
+            }
+            if (victory)
+            {
+                labelVictory.Show();
             }
             repaint();
         }

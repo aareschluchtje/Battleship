@@ -14,22 +14,25 @@ namespace Battleship
 {
     public partial class OpponentForm : Form
     {
-        private bool wait = false;
         private List<Tuple<int, int, bool>> shotsFired;
         private Tuple<int, int> currentTarget;
         private Image cross, target, hit;
         private Graphics g;
         private ClientClass client;
         private Server server;
+        private int victoryCount;
+        private GameForm form;
 
-        public OpponentForm(ClientClass client)
+        public OpponentForm(ClientClass client, GameForm form)
         {
+            this.form = form;
             this.client = client;
             StartGame();
         }
 
-        public OpponentForm(Server server)
+        public OpponentForm(Server server, GameForm form)
         {
+            this.form = form;
             this.server = server;
             StartGame();
         }
@@ -37,6 +40,7 @@ namespace Battleship
         private void StartGame()
         {
             this.InitializeComponent();
+            form.wait = false;
             shotsFired = new List<Tuple<int, int, bool>>();
             cross = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\cross.png");
             target = new Bitmap(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\images\\target.png");
@@ -44,6 +48,9 @@ namespace Battleship
             g = pictureBox1.CreateGraphics();
             timer1.Start();
             currentTarget = new Tuple<int, int>(0, 0);
+            labelVictory.Hide();
+            labelDefeat.Hide();
+            this.victoryCount = 0;
         }
 
         public void repaint()
@@ -65,7 +72,7 @@ namespace Battleship
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (!wait)
+            if (!form.wait)
             {
                 currentTarget = new Tuple<int, int>(this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50, this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70);
                 Fire.Enabled = true;
@@ -87,55 +94,64 @@ namespace Battleship
         {
             if (server != null)
             {
-                if (wait)
+                if (form.wait)
                 {
                     if (server.hit == 2)
                     {
                         shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1/50, currentTarget.Item2/50, true));
-                        wait = false;
-                        Fire.Enabled = true;
                         currentTarget = new Tuple<int, int>(0, 0);
                         server.hit = 0;
                     }
                     else if (server.hit == 1)
                     {
                         shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1/50, currentTarget.Item2/50, false));
-                        wait = false;
-                        Fire.Enabled = true;
                         currentTarget = new Tuple<int, int>(0, 0);
                         server.hit = 0;
                     }
                 }
+                if(server.victory)
+                {
+                    labelVictory.Show();
+                    victoryCount++;
+                }
             }
             if (client != null)
             {
-                if (wait)
+                if (form.wait)
                 {
                     if (client.hit == 2)
                     {
                         shotsFired.Add(new Tuple<int, int, bool>((currentTarget.Item1/50), currentTarget.Item2/50, true));
-                        wait = false;
-                        Fire.Enabled = true;
                         currentTarget = new Tuple<int, int>(0,0);
                         client.hit = 0;
                     }
                     else if (client.hit == 1)
                     {
                         shotsFired.Add(new Tuple<int, int, bool>((currentTarget.Item1/50), currentTarget.Item2/50, false));
-                        wait = false;
-                        Fire.Enabled = true;
                         currentTarget = new Tuple<int, int>(0,0);
                         client.hit = 0;
                     }
                 }
+                if (client.victory)
+                {
+                    labelVictory.Show();
+                    victoryCount++;
+                }
             }
             repaint();
+            if (victoryCount > 50)
+            {
+                MenuForm menuform = new MenuForm();
+                menuform.Show();
+                this.Hide();
+                form.Hide();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Fire.Enabled = false;
-            wait = true;
+            form.wait = true;
             if (server != null)
             {
                 server.sendMessage("i+" + (currentTarget.Item1/50) + "," + (currentTarget.Item2/50));

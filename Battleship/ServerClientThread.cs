@@ -63,5 +63,12 @@ namespace Battleship
             writer.WriteLine(message);
             writer.Flush();
         }
+
+        public void closeConnection()
+        {
+            reader.Close();
+            writer.Close();
+            tcpClient.Close();
+        }
     }
 }
