@@ -62,14 +62,17 @@ namespace Battleship
             this.Refresh();
             for(int i = 0; i < images.Count; i++)
             {
-                g.TranslateTransform(ships[i].Location.X+50, ships[i].Location.Y );
+                if(ships[i].Rotation == 90)
+                    g.TranslateTransform(ships[i].Location.X+50, ships[i].Location.Y);
+                else
+                    g.TranslateTransform(ships[i].Location.X, ships[i].Location.Y);
                 g.RotateTransform(ships[i].Rotation);
                 g.DrawImage(images[i], new Point(0,0));
                 g.ResetTransform();
             }
             for (int i = 0; i < hits.Count; i++)
             {
-                g.DrawImage(hit, new Point(hits[i].Item1, hits[i].Item2));
+                g.DrawImage(hit, new Point(hits[i].Item1*50, hits[i].Item2*50));
             }
         }
 
