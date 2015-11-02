@@ -27,9 +27,11 @@ namespace Battleship
         private bool victory;
         public bool wait;
         private Image hit;
+        private BufferedGraphics buffer;
 
         public GameForm(ClientClass client, string name)
         {
+            DoubleBuffered = true;
             this.name = name.Remove(0,9).Replace(System.Environment.NewLine, "");
             this.client = client;
             StartGame();
@@ -38,6 +40,7 @@ namespace Battleship
 
         public GameForm(Server server, string name)
         {
+            DoubleBuffered = true;
             this.server = server; 
             this.name = name.Remove(0,9).Replace(System.Environment.NewLine, "");
             StartGame();
@@ -74,6 +77,7 @@ namespace Battleship
                 g.RotateTransform(ships[i].Rotation);
                 g.DrawImage(images[i], new Point(0,0));
                 g.ResetTransform();
+                
             }
             for (int i = 0; i < hits.Count; i++)
             {
@@ -256,6 +260,7 @@ namespace Battleship
             {
                 if (server.impact != null)
                 {
+
                     foreach (Ship ship in ships)
                     {
                         foreach (Tuple<int,int> coordinate in ship.getCoordinates())
@@ -265,8 +270,10 @@ namespace Battleship
                             {
                                 hit = 2;
                                 hits.Add(coordinate);
+                                repaint();
                             }
                         }
+                       
                     }
                     server.sendMessage("h+" + hit);
                     wait = false;
@@ -291,9 +298,11 @@ namespace Battleship
                             {
                                 hit = 2;
                                 hits.Add(coordinate);
+                                repaint();
                             }
                         }
                     }
+                    
                     client.sendMessage("h+" + hit);
                     wait = false;
                     client.impact = null;
@@ -309,7 +318,7 @@ namespace Battleship
             {
                 labelVictory.Show();
             }
-            repaint();
+            
         }
 
         private void Labelname_Click(object sender, EventArgs e)

@@ -119,12 +119,14 @@ namespace Battleship
                         shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1/50, (currentTarget.Item2/50)+1, true));
                         currentTarget = new Tuple<int, int>(0, 0);
                         server.hit = 0;
+                        repaint();
                     }
                     else if (server.hit == 1)
                     {
                         shotsFired.Add(new Tuple<int, int, bool>(currentTarget.Item1/50, (currentTarget.Item2/50)+1, false));
                         currentTarget = new Tuple<int, int>(0, 0);
                         server.hit = 0;
+                        repaint();
                     }
                 }
                 if(server.victory)
@@ -142,12 +144,14 @@ namespace Battleship
                         shotsFired.Add(new Tuple<int, int, bool>((currentTarget.Item1/50), currentTarget.Item2/50+1, true));
                         currentTarget = new Tuple<int, int>(0,0);
                         client.hit = 0;
+                        repaint();
                     }
                     else if (client.hit == 1)
                     {
                         shotsFired.Add(new Tuple<int, int, bool>((currentTarget.Item1/50), currentTarget.Item2/50+1, false));
                         currentTarget = new Tuple<int, int>(0,0);
                         client.hit = 0;
+                        repaint();
                     }
                 }
                 if (client.victory)
@@ -156,7 +160,7 @@ namespace Battleship
                     victoryCount++;
                 }
             }
-            repaint();
+           
             if (victoryCount > 50)
             {
                 MenuForm menuform = new MenuForm();
