@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,20 @@ namespace Battleship
         public MenuForm()
         {
             InitializeComponent();
+            try
+            {   // Open the text file using a stream reader.
+                using (StreamReader sr = new StreamReader("last_user.txt"))
+                {
+                    // Read the stream to a string, and write the string to the console.
+                    String line = sr.ReadToEnd();
+                    textBox_Name.Text = line;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The file could not be read: or no old user");
+                Console.WriteLine(e.Message);
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,6 +48,7 @@ namespace Battleship
         {
             Form y = new FindGame(textBox_Name.Text,this);
             y.Show();
+            saveUser(textBox_Name.Text);
             this.Hide();
         }
 
@@ -40,12 +56,34 @@ namespace Battleship
         {
             Form z = new NewGame(true,textBox_Name.Text,this);
             z.Show();
+            saveUser(textBox_Name.Text);
             this.Hide();
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void saveUser(string name)
+        {
+            string[] temp = { name};
+            System.IO.File.WriteAllLines("last_user.txt", temp);
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void button_LoadUser_Click(object sender, EventArgs e)
+        {
+            DialogResult result=openFileDialog1.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                Console.WriteLine(result.ToString());
+            }
         }
     }
 }

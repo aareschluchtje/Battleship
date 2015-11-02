@@ -37,7 +37,7 @@
             // 
             // textBox_Name
             // 
-            this.textBox_Name.Location = new System.Drawing.Point(12, 15);
+            this.textBox_Name.Location = new System.Drawing.Point(12, 12);
             this.textBox_Name.Name = "textBox_Name";
             this.textBox_Name.Size = new System.Drawing.Size(212, 20);
             this.textBox_Name.TabIndex = 0;
@@ -45,7 +45,7 @@
             // label_Nickname
             // 
             this.label_Nickname.AutoSize = true;
-            this.label_Nickname.Location = new System.Drawing.Point(230, 18);
+            this.label_Nickname.Location = new System.Drawing.Point(230, 19);
             this.label_Nickname.Name = "label_Nickname";
             this.label_Nickname.Size = new System.Drawing.Size(55, 13);
             this.label_Nickname.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // button_NewGame
             // 
-            this.button_NewGame.Location = new System.Drawing.Point(12, 59);
+            this.button_NewGame.Location = new System.Drawing.Point(12, 38);
             this.button_NewGame.Name = "button_NewGame";
             this.button_NewGame.Size = new System.Drawing.Size(273, 53);
             this.button_NewGame.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             // button_FindGame
             // 
-            this.button_FindGame.Location = new System.Drawing.Point(12, 118);
+            this.button_FindGame.Location = new System.Drawing.Point(12, 97);
             this.button_FindGame.Name = "button_FindGame";
             this.button_FindGame.Size = new System.Drawing.Size(273, 53);
             this.button_FindGame.TabIndex = 4;
@@ -74,7 +74,7 @@
             // 
             // button_Exit
             // 
-            this.button_Exit.Location = new System.Drawing.Point(12, 177);
+            this.button_Exit.Location = new System.Drawing.Point(12, 156);
             this.button_Exit.Name = "button_Exit";
             this.button_Exit.Size = new System.Drawing.Size(273, 53);
             this.button_Exit.TabIndex = 5;
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 245);
+            this.ClientSize = new System.Drawing.Size(297, 220);
             this.Controls.Add(this.button_Exit);
             this.Controls.Add(this.button_FindGame);
             this.Controls.Add(this.button_NewGame);
