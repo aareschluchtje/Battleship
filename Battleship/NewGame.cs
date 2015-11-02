@@ -109,8 +109,11 @@ namespace Battleship
             {
                 client.sendMessage("p+" + Player2);
                 label_PlayerOne.Text += client.name;
-                label_IP.Text += ip;
-                label_Port.Text += port;
+                if (label_IP.Text.Length < 5)
+                {
+                    label_IP.Text += ip;
+                    label_Port.Text += port;
+                }
                 if (client.name != null)
                 {
                     this.button_Start.Show();
