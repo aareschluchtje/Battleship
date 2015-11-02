@@ -316,5 +316,14 @@ namespace Battleship
         {
 
         }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -35,7 +35,10 @@ namespace Battleship
         {
 
         }
-
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
         private void buttonConnect_Click(object sender, EventArgs e)
         {
 

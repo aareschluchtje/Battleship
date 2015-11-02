@@ -104,7 +104,10 @@ namespace Battleship
         {
 
         }
-
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (server != null)

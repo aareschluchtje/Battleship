@@ -80,7 +80,7 @@ namespace Battleship
             this.label1.Font = new System.Drawing.Font("Impact", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(5, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 41);
+            this.label1.Size = new System.Drawing.Size(129, 34);
             this.label1.TabIndex = 1;
             this.label1.Text = "Battleship";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -130,7 +130,7 @@ namespace Battleship
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 624);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 17);
+            this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Patrol Boat";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -140,7 +140,7 @@ namespace Battleship
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(275, 624);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 17);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Destroyer";
             // 
@@ -149,7 +149,7 @@ namespace Battleship
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 700);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 17);
+            this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Battleship";
             // 
@@ -158,7 +158,7 @@ namespace Battleship
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(275, 700);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 17);
+            this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Aircraft Carrier";
             // 
@@ -177,7 +177,7 @@ namespace Battleship
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(540, 624);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 17);
+            this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Submarine";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -187,7 +187,7 @@ namespace Battleship
             this.PositionLabel.AutoSize = true;
             this.PositionLabel.Location = new System.Drawing.Point(615, 33);
             this.PositionLabel.Name = "PositionLabel";
-            this.PositionLabel.Size = new System.Drawing.Size(79, 17);
+            this.PositionLabel.Size = new System.Drawing.Size(61, 13);
             this.PositionLabel.TabIndex = 7;
             this.PositionLabel.Text = "x = 0, Y = 0";
             // 
@@ -208,7 +208,7 @@ namespace Battleship
             this.Labelname.Font = new System.Drawing.Font("Impact", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Labelname.Location = new System.Drawing.Point(558, 78);
             this.Labelname.Name = "Labelname";
-            this.Labelname.Size = new System.Drawing.Size(83, 41);
+            this.Labelname.Size = new System.Drawing.Size(69, 34);
             this.Labelname.TabIndex = 10;
             this.Labelname.Text = "- You";
             this.Labelname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -239,7 +239,7 @@ namespace Battleship
             this.waitingLabel.AutoSize = true;
             this.waitingLabel.Location = new System.Drawing.Point(597, 190);
             this.waitingLabel.Name = "waitingLabel";
-            this.waitingLabel.Size = new System.Drawing.Size(140, 17);
+            this.waitingLabel.Size = new System.Drawing.Size(106, 13);
             this.waitingLabel.TabIndex = 13;
             this.waitingLabel.Text = "Waiting for opponent";
             // 
@@ -252,7 +252,7 @@ namespace Battleship
             this.LabelPlayerNumber.AutoSize = true;
             this.LabelPlayerNumber.Location = new System.Drawing.Point(642, 119);
             this.LabelPlayerNumber.Name = "LabelPlayerNumber";
-            this.LabelPlayerNumber.Size = new System.Drawing.Size(52, 17);
+            this.LabelPlayerNumber.Size = new System.Drawing.Size(39, 13);
             this.LabelPlayerNumber.TabIndex = 14;
             this.LabelPlayerNumber.Text = "Player ";
             // 
@@ -263,7 +263,7 @@ namespace Battleship
             this.labelVictory.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelVictory.Location = new System.Drawing.Point(70, 229);
             this.labelVictory.Name = "labelVictory";
-            this.labelVictory.Size = new System.Drawing.Size(445, 145);
+            this.labelVictory.Size = new System.Drawing.Size(354, 117);
             this.labelVictory.TabIndex = 15;
             this.labelVictory.Text = "Victory!";
             // 
@@ -274,7 +274,7 @@ namespace Battleship
             this.labelDefeat.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDefeat.Location = new System.Drawing.Point(85, 229);
             this.labelDefeat.Name = "labelDefeat";
-            this.labelDefeat.Size = new System.Drawing.Size(414, 145);
+            this.labelDefeat.Size = new System.Drawing.Size(332, 117);
             this.labelDefeat.TabIndex = 15;
             this.labelDefeat.Text = "Defeat!";
             // 
@@ -305,6 +305,7 @@ namespace Battleship
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GameForm";
             this.Text = "Battleship";
+            this.Load += new System.EventHandler(this.GameForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PatrolBoat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).EndInit();
