@@ -27,7 +27,7 @@ namespace Battleship
         {
             List<Tuple<int,int>> coordinates = new List<Tuple<int,int>>();
             int x = Location.X / 50;
-            int y = (Location.Y - 67) / 50;
+            int y = Location.Y / 50;
             coordinates.Add(new Tuple<int, int>(x,y));
             switch (Type)
             {
@@ -49,7 +49,7 @@ namespace Battleship
                         coordinates.Add(new Tuple<int, int>(x, y - 1));
                     }
                     break;
-                    case ShipType.DESTROYER:
+                 case ShipType.DESTROYER:
                     if (Rotation == 0)
                     {
                         coordinates.Add(new Tuple<int, int>(x + 1, y));

@@ -41,7 +41,7 @@ namespace Battleship
 
             client = new TcpClient(textBoxIP.Text,int.Parse(textBoxPort.Text));
             ClientClass tcpclient = new ClientClass(client);
-            Form z = new NewGame(false,naam,tcpclient,this);
+            Form z = new NewGame(false,naam,tcpclient,this, textBoxIP.Text, textBoxPort.Text);
             z.Show();
             this.Hide();
         }

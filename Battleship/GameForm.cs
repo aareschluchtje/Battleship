@@ -68,9 +68,9 @@ namespace Battleship
             for(int i = 0; i < images.Count; i++)
             {
                 if(ships[i].Rotation == 90)
-                    g.TranslateTransform(ships[i].Location.X+50, ships[i].Location.Y);
+                    g.TranslateTransform(ships[i].Location.X+53, ships[i].Location.Y);
                 else
-                    g.TranslateTransform(ships[i].Location.X, ships[i].Location.Y);
+                    g.TranslateTransform(ships[i].Location.X, ships[i].Location.Y-3);
                 g.RotateTransform(ships[i].Rotation);
                 g.DrawImage(images[i], new Point(0,0));
                 g.ResetTransform();
@@ -90,7 +90,8 @@ namespace Battleship
                 if (eventArgs.Button == MouseButtons.Left)
                 {
                     int x = this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50;
-                    int y = this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70;
+                    int y = (this.PointToClient(Cursor.Position).Y - 67) - ((this.PointToClient(Cursor.Position).Y - 67) % 50);
+                    Console.WriteLine(y);
 
                     if (PatrolBoat.BackColor == Color.Green)
                     {
@@ -259,6 +260,7 @@ namespace Battleship
                     {
                         foreach (Tuple<int,int> coordinate in ship.getCoordinates())
                         {
+                            Console.WriteLine(coordinate + "" + ship.Type);
                             if (coordinate.Equals(server.impact))
                             {
                                 hit = 2;
@@ -270,7 +272,7 @@ namespace Battleship
                     wait = false;
                     server.impact = null;
                 }
-                if (hits.Count > 16)
+                if (hits.Count > 18)
                 {
                     server.sendMessage("v+" + true);
                     labelDefeat.Show();
@@ -296,7 +298,7 @@ namespace Battleship
                     wait = false;
                     client.impact = null;
                 }
-                if (hits.Count > 16)
+                if (hits.Count > 18)
                 {
                     client.sendMessage("v+" + true);
                     labelDefeat.Show();

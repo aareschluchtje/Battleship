@@ -74,9 +74,23 @@ namespace Battleship
         {
             if (!form.wait)
             {
-                currentTarget = new Tuple<int, int>(this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50, this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70);
-                Console.WriteLine(currentTarget);
-                Fire.Enabled = true;
+                bool equal = false;
+                foreach (Tuple<int,int,bool> shot in shotsFired)
+                {
+                    Tuple<int, int> coordinate =
+                        new Tuple<int, int>(
+                            this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X%50,
+                            this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67)%50 - 70);
+                    coordinate = new Tuple<int, int>(coordinate.Item1/50, coordinate.Item2/50+1);
+                    if (coordinate.Item1 == shot.Item1 && coordinate.Item2 == shot.Item2)
+                        equal = true;
+                }
+                if (!equal)
+                {
+                    currentTarget = new Tuple<int, int>(this.PointToClient(Cursor.Position).X - this.PointToClient(Cursor.Position).X % 50, this.PointToClient(Cursor.Position).Y - (this.PointToClient(Cursor.Position).Y - 67) % 50 - 70);
+                    Console.WriteLine(currentTarget);
+                    Fire.Enabled = true;
+                }
             }
             repaint();
         }

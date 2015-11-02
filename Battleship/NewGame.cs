@@ -17,16 +17,20 @@ namespace Battleship
         public string Player2= "";
         public Server server;
         public ClientClass client;
+        private string ip = null;
+        private string port = null;
         Form oldForm;
 
-        public NewGame(bool isHost, string naam, Form oldForm)
+        public NewGame(bool isHost, string name, Form oldForm)
         {
             this.oldForm = oldForm;
-            Player1 = naam; 
+            Player1 = name; 
             server = new Server();
-
+            this.ip = null;
+            this.port = null;
             this.isHost = isHost;
             InitializeComponent();
+            this.button_Start.Hide();
             label_PlayerOne.Text += Player1;
             label_IP.Text += "127.0.0.1";
             label_Port.Text += "1000";
@@ -34,15 +38,16 @@ namespace Battleship
             //label_Player2.Text += temp1.message;
         }
 
-        public NewGame(bool isHost, string naam, ClientClass client,Form oldForm)
+        public NewGame(bool isHost, string name, ClientClass client,Form oldForm, string ip, string port)
         {
-            Player2 = naam;
+            Player2 = name;
 
             this.Name = "Load game";
             this.oldForm = oldForm;
             this.isHost = isHost;
             this.client = client;
-
+            this.ip = ip;
+            this.port = port;
 
             InitializeComponent();
             this.button_Start.Hide();
@@ -94,11 +99,17 @@ namespace Battleship
             {
                 server.sendMessage("p+" + Player1);
                 label_Player2.Text += server.name;
+                if (server.name != null)
+                {
+                    this.button_Start.Show();
+                }
             }
             else if(label_PlayerOne.Text.Length < 10 && !isHost)
             {
                 client.sendMessage("p+" + Player2);
                 label_PlayerOne.Text += client.name;
+                label_IP.Text += ip;
+                label_Port.Text += port;
                 if (client.name != null)
                 {
                     this.button_Start.Show();
