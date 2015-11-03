@@ -73,7 +73,6 @@ namespace Battleship
         {
             string[] temp = { name};
             System.IO.File.WriteAllLines("last_user.txt", temp);
-
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

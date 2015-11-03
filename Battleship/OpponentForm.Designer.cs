@@ -111,6 +111,7 @@ namespace Battleship
             this.labelDefeat.AutoSize = true;
             this.labelDefeat.BackColor = System.Drawing.Color.Transparent;
             this.labelDefeat.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDefeat.ForeColor = System.Drawing.Color.Red;
             this.labelDefeat.Location = new System.Drawing.Point(77, 240);
             this.labelDefeat.Name = "labelDefeat";
             this.labelDefeat.Size = new System.Drawing.Size(414, 145);

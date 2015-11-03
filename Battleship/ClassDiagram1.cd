@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Battleship.ClientClass" Collapsed="true">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAgAQAAAAAAAgAAAUAAAAAAAIAAAgAAA=</HashCode>
+      <FileName>ClientClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.ClientThread" Collapsed="true">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAIAAAAAAAAAAAAAAgAAAQAAAAAQAABAAQAAA=</HashCode>
+      <FileName>ClientThread.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.FindGame" Collapsed="true">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAEA0AACCAABAAAACIiAECAEQAAAAAABABBAAAAAA=</HashCode>
+      <FileName>FindGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.GameForm" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAIEYAAywwAhkAAACCAAQiEGQEIggOgCBYBABBQIM=</HashCode>
+      <FileName>GameForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.MenuForm" Collapsed="true">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAQEACCAAAAAAACAAAACAEgAAAIAQOAQAAAIAAg=</HashCode>
+      <FileName>MenuForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.NewGame" Collapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAQAACACACAAwACAgBACAGIUAAgACEAgBAAIADI=</HashCode>
+      <FileName>NewGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.OpponentForm" Collapsed="true">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAIAQAACAAAhAAIACCAAAiAHAEKIAoAEAABADAQAI=</HashCode>
+      <FileName>OpponentForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.Program" Collapsed="true">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.Server" Collapsed="true">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAgAQAAAAAAAgAAAUAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.ServerClientThread" Collapsed="true">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAEAIAAQAAAAAQAAAAAQAAI=</HashCode>
+      <FileName>ServerClientThread.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Battleship.Ship" Collapsed="true">
+    <Position X="9" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACIAAAAIAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Ship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

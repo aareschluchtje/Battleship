@@ -18,14 +18,6 @@ namespace Battleship
         public bool victory = false;
         public bool ready = false;
 
-        public ClientClass()
-        {
-            TcpClient tcpclient = new TcpClient("127.0.0.1", 1000);
-            cl = new ClientThread(tcpclient, this);
-            Thread thread = new Thread(cl.run);
-            thread.Start();
-        }
-
         public ClientClass(TcpClient tcpClient)
         {
             cl = new ClientThread(tcpClient, this);

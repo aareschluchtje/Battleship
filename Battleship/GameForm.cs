@@ -24,7 +24,7 @@ namespace Battleship
         private ClientClass client;
         private Server server;
         private string name;
-        private bool victory;
+        public bool victory, defeat;
         public bool wait;
         private Image hit;
         private BufferedGraphics buffer;
@@ -63,6 +63,7 @@ namespace Battleship
             this.labelDefeat.Hide();
             this.wait = false;
             this.victory = false;
+            this.defeat = false;
         }
 
         public void repaint()
@@ -311,6 +312,7 @@ namespace Battleship
                 {
                     client.sendMessage("v+" + true);
                     labelDefeat.Show();
+                    defeat = true;
                 }
                 victory = client.victory;
             }

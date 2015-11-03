@@ -160,14 +160,32 @@ namespace Battleship
                     labelVictory.Show();
                     victoryCount++;
                 }
+                if (form.defeat)
+                {
+                    labelDefeat.Show();
+                    victoryCount++;
+                }
             }
            
-            if (victoryCount > 50)
+            if (victoryCount > 150)
             {
                 MenuForm menuform = new MenuForm();
                 menuform.Show();
-                this.Hide();
-                form.Hide();
+                form.defeat = false;
+                form.Close();
+                if (client != null)
+                {
+                    client.victory = false;
+                    client.closeConnection();
+                }
+                else
+                {
+                    server.victory = false;
+                    server.closeConnection();
+                }
+                
+                victoryCount = 0;
+                this.Close();
             }
             if (!form.wait)
             {
